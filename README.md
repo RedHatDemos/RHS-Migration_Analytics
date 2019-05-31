@@ -4,4 +4,4 @@ This repo will host the documentation for the Traning and Demo environments rela
 This effort is part of the Red Hat Migration and Modernization Solutions.
 
 Check source code being developed here:
-https://project-xavier.io
+http://project-xavier.io

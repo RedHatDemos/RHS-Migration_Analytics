@@ -1,2 +1,230 @@
-Document to host the Migration Analytics Lab Guide.
-Work in progress.
+:scrollbar:
+:data-uri:
+:toc2:
+:imagesdir: images
+
+== Migration Analytics 0.1 beta - Lab Guide
+
+:numbered:
+
+== Overview
+
+This Lab Environment uses Red Hat CloudForms, and the Infrastructure Migration plugin (a.k.a. v2v-plugin) included with it, as a broker to migrate VMs from VMware vSphere to Red Hat Virtualization (RHV) and Red Hat OpenStack Platform (OSP). 
+
+The password to access all services is available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here]
+
+In this environment the following configuration steps are already done:
+
+* Configure the conversion hosts in the target providers (RHV and OSP)
+* Provide credentials for virtualization providers and conversion hosts in CloudForms
+* Assign tags for the conversion hosts in CloudForms
+* Configured Ansible hosts file in `workstation` and ssh keys exchanged (`/root/.ssh/id_rsa`)
+
+The providers are:
+
+* Source - VMware vSphere
+* Targets - Red Hat Virtualization and Red Hat OpenStack Platform
+
+After this initial step, the resource equivalence between the two providers, involved in each migration, has to be defined in an *Infrastucture Mapping* including:
+
+* Clusters
+* Storage Domains
+* Networks
+
+To perform the migration one *Conversion Host* has been configured for each target provider (RHV / OSP). 
+
+* In the RHV case the one of the RHEL hypervisors is configured as conversion host
+* In the OSP case an instance running in the `conversion` project is configured as conversion host
+
+Finally, a *Migration Plan* has to be executed to perform the final migration.
+
+.Goal
+* Migrate several VMs from VMware vSphere to Red Hat Virtualization and Red Hat OpenStack Platform, using Red Hat CloudForms as a broker, with the tooling included in the Red Hat Infrastructure Migration Solution
++
+NOTE: The source VMs are not deleted, only powered off once the migration is done. This measure can also be used as "rollback" in case a migration failure occurs.
+
+Required versions of products used:
+
+[cols="1,1",options="header"]
+|=======
+|Product |Version
+|CloudForms |5.0.0+ 
+|Red Hat Virtualization |4.3.0+
+|Red Hat OpenStack Platform |13+
+|Red Hat Enterprise Linux (Conversion Host) |7.6+
+|Conversion Host Image |1.7+
+|VMware vSphere |5.5+ (6.7 used)
+|=======
+
+== Requirements to access and perform this lab
+
+=== Base requirements
+
+* A computer with access to the Internet :-)
+* SSH client
+* Firefox, or Chromium / Chrome
++
+[NOTE]
+Grammarly plugin for Chrome causes problems when managing CloudForms. Please deactivate it while doing this lab.
+
+=== Obtaining or enabling access credentials
+
+. First time login?, forgot login or password? Go to https://www.opentlc.com/account 
+
+. Note, your username should NOT have an *@* in it. 
+
+. Red Hat Partners can also request access to the Red Hat Product Demo System (link:https://rhpds.redhat.com[RHPDS]) by sending an email to open-program@redhat.com. 
+
+. Passwords to the services are referred as `<to_be_provided>`. The credentials to access all services are available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here]. If you can't access it please contact GPTE or the link:https://mojo.redhat.com/community/marketing/vertical-marketing/horizontal-solutions/people[Horizontal Solutions Team].
+
+== Environment
+
+A full new migration environment is deployed on every request. To make the environment unique a 4 character identifier is assigned to it (i.e. `1e37`), this identifier is referred in this documentation as *YOUR-GUID*.  
+
+The migration environment consists of the following systems:
+
+image::blueprint.png[Blueprint]
+
+[cols="1,1,1,2",options="header"]
+|=======
+| Hostname | Internal IP | External name | Description
+|`workstation.example.com` |`192.168.0.10` | workstation-<YOUR-GUID>.rhpds.opentlc.com |Jump host and Ansible host
+|`storage.example.com` |`192.168.0.254` | workstation-<YOUR-GUID>.rhpds.opentlc.com | NFS server
+|`cf.example.com` |`192.168.0.100` |  cf-<YOUR-GUID>.rhpds.opentlc.com |CloudForms server
+|`rhvm.example.com` |`192.168.0.35` | rhvm-<YOUR-GUID>.rhpds.opentlc.com |Red Hat Virtualization Manager server
+|`kvm1.example.com` |`192.168.0.41` | kvm1-<YOUR-GUID>.rhpds.opentlc.com |KVM hypervisor managed by Red Hat Virtualization
+|`kvm2.example.com` |`192.168.0.42` | kvm2-<YOUR-GUID>.rhpds.opentlc.com |KVM hypervisor managed by Red Hat Virtualization
+|`horizon.example.com` |`192.168.10.19` | horizon-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform web UI and User API Endpoint
+|`director.example.com` |`192.168.0.60` | director-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform Director (Undercloud)
+|`controller.example.com` |`10.100.0.111` | controller-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform controller
+|`compute0.example.com` |`10.100.0.105` | compute0-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform compute
+|`compute1.example.com` |`10.100.0.107` | compute1-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform compute
+|`vcenter.example.com` |`192.168.0.50` | vcenter-<YOUR-GUID>.rhpds.opentlc.com |VMware vCenter server
+|`esx1.example.com` |`192.168.0.51` | N/A |ESXi hypervisor
+|`esx2.example.com` |`192.168.0.52` | N/A |ESXi hypervisor
+|=======
+
+The architecture of the deployment can be depicted as it follows:
+
+image::architecture_diagram.png[Architecture Diagram]
+
+* Networks
+Networks used in the environment
+
+[cols="1,1,2",options="header"]
+|=======
+| Network Name | IP range | Description
+| `Admin` | `192.168.x.x/16` | General administration and storage network.
+| `Service` | `10.10.0.x/24` | Internal network for the app to connect LB to EAP and to DB. 
+| `Servicer-DMZ` | `10.9.0.x/24` | External DMZ network to publish the app. Also access to the user API for OSP and Horizon (provider network)
+| `OSP Provisioning` | `10.100.0.x/24` | OpenStack provisioning network (includes Director and PXE), as well as access to the Admin API endpoint and control plane.  
+|=======
+
+* Virtual Machines 
+This deployment of the migration environment includes the following VMs provisioned in the vSphere environment in order to be migrated:
+
+[cols="1,1,2",options="header"]
+|=======
+| Name | IPs | Description
+| `jboss0.example.com` | 10.10.0.110 | Red Hat Enterprise Linux 7 host running JBoss EAP, connected to the `Service` network for ticket-monster.
+| `jboss1.example.com` | 10.10.0.111 | Red Hat Enterprise Linux 7 host running JBoss EAP, connected to the `Service` network for ticket-monster.
+| `lb.example.com` | 10.10.0.100 , 10.9.0.100 | Red Hat Enterprise Linux 7 host running JBoss Core Service Apache HTTP server configured with mod_cluster to proxy traffic to `jboss0` and `jboss1`, connected to the `Service` and `Servicer-DMZ` networks for ticket-monster.
+| `db.example.com` | 10.10.0.120 | Red Hat Enterprise Linux 7 host running PostgreSQL providing service to `jboss0` and `jboss1` through the `Service` network for ticket-monster.
+| `hana.example.com` | 10.10.0.150 | Red Hat Enterprise Linux 7 HANA Express through the `Service` network.
+| `tomcat.example.com` | 10.10.0.180 | CentOS 7 host running Apache Tomcat 8 server through the `Service` network.
+|=======
+
+* An external service is configured as https://app-<YOUR-GUID>.rhpds.opentlc.com pointing to the Load Balancer to make the Ticket Monster app accessible.
+
+== Getting Started
+
+. Once the system is running, use SSH to access your demo server using your OPENTLC login name and private SSH key.
+
+* Using a Unix/Linux system:
++
+----
+$ ssh -i /path/to/private_key <YOUR-OpenTLC-USERNAME-redhat.com>@workstation-<YOUR-GUID>.rhpds.opentlc.com
+----
+
+* Example for user 'batman' and GUID '1e37', using the default ssh private key:
++
+----
+$ ssh -i ~/.ssh/id_rsa batman-redhat.com@workstation-1e37.rhpds.opentlc.com
+----
+
+. Become `root` using the provided password:
++
+----
+$ sudo -i
+----
+
+. Check the status of the whole environment, from the `workstation`, using ansible:
++
+----
+# ansible all -m ping
+----
++
+This command establishes a connection to all the machines in the environment (except ESXi servers). 
+In case the machines are up an running a success message, per each, will show up. 
+This is an example of a success message for the VM `cf.example.com`:
++
+----
+cf.example.com | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+----
++ 
+To check the infrastructure machines the following command can be also used:
++
+----
+# ansible infra -m ping
+----
+There are 4 VMs in the vCenter environment hosting an app with JBoss Core Services' Apache HTTP + modcluster as loadbalancer, two JBoss EAP 7 in domain mode, and a Postgresql database.
+To check only if these ones are running, you may use the following command:
++
+----
+# ansible app -m ping
+----
++ 
+[NOTE]
+As this environment is quite big, and it is generated and powered up for you in a cloud environment, some resources may suffer from issues or delays depending on the status of the cloud. You may need to manually start up or reboot some of them. Please review everything is running before proceeding forward.
+
+. Establish an SSH connection to the CloudForms server and monitor `automation.log`:
++
+----
+# ssh cf.example.com
+# tail -f /var/www/miq/vmdb/log/automation.log
+----
++
+[TIP]
+The log entries are very long, so it helps if you stretch this window as wide as possible.
++
+[NOTE]
+The log entries can be also seen in the CloudForms web UI in *Automation -> Automate -> Log*.
+
+. Verify that the Ticket Monster app is running:
+
+* Point your browser to https://app-<YOUR-GUID>.rhpds.opentlc.com and check it is running:
++
+image::app-ticketmonster-running.png[Ticket Monster app running]
+[NOTE]
+You must accept all of the self-signed SSL certificates.
++
+image::ssl_cert_warning.png[SSL Cert Warning]
++
+If the ticketmonster app is not running, you may run the following command in `workstation`:
++
+----
+# start_vms
+----
+
+. Prepare to manage the environment. From a web browser, open each of the URLs below in its own window or tab, using these credentials (except when noted):
+
+* *Username*: `admin`
+* *Password*: `<to_be_provided>`
++
+[NOTE]
+You must accept all of the self-signed SSL certificates.
++
+

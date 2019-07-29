@@ -5,3 +5,6 @@ This effort is part of the Red Hat Migration and Modernization Solutions.
 
 Check source code being developed here:
 http://project-xavier.io
+
+## Changelog
+[Changelog](CHANGELOG.md)

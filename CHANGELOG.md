@@ -2,10 +2,13 @@
 Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
 
 ## [0.8] - 2019-07-29
-- Added OSP provider. Reconfigured Tomcat VM. Added autostart in ESXi.
+- Added OSP provider. 
+- Reconfigured Tomcat VM. 
+- Added autostart for VMs in ESXi.
 
 ## [0.7] - 2019-07-23
-- Fixed 4.3 issues with CPU. Configured conversion host for RHV.
+- Fixed 4.3 issues with CPU. 
+- Configured conversion host for RHV.
 
 ## [0.6b]
 - CF updated to: cfme-5.11.0.15-1

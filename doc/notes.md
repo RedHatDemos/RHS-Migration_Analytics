@@ -1,6 +1,6 @@
 # Obtaining manually a payload for Migration Analytics
 
-* SSH into CloudForms vm
+* SSH into CloudForms VM
 ```
 # ssh cf.example.com
 ```

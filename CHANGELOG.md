@@ -1,6 +1,14 @@
 # Changelog 
 Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
 
+
+## [0.9] 2019-08-01
+- Added endpoint for tomcat. 
+- Changed password policy in vSphere. 
+- Changed password for admin@vsphere.local. 
+- Added workstation keys to esx hosts. 
+- Some minor cleanups.
+
 ## [0.8] - 2019-07-29
 - Added OSP provider. 
 - Reconfigured Tomcat VM. 

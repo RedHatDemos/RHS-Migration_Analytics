@@ -25,5 +25,14 @@ irb(main):001:0> payload = Cfme::CloudServices::DataCollector.collect(JSON.parse
 ```
 irb(main):002:0> Cfme::CloudServices::DataPackager.package(payload)
 => #<Pathname:/tmp/cfme_inventory20190731-18262-s0i9fo.tar.gz>
+```
+
+* In a different terminal copy the file
+```
+# cp /tmp/cfme_inventory20190731-18262-s0i9fo.tar.gz /root/
+```
+
+* Now exit the rails console. (Note: The temporary file will be removed)
+```
 irb(main):003:0> quit
 ```

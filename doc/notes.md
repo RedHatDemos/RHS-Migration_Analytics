@@ -10,7 +10,7 @@
 ```
 * Obtain the `manifest.json` file with the configuration of the data extraction
 ```
-# curl https://raw.githubusercontent.com/RedHatDemos/RHS-Migration_Analytics/master/config/manifest.json >/dev/null > manifest.json
+# curl https://raw.githubusercontent.com/RedHatDemos/RHS-Migration_Analytics/master/config/manifest.json 2>/dev/null > manifest.json
 ```
 * Enter the rails console
 ```

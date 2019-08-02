@@ -1,6 +1,12 @@
 # Changelog 
 Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
 
+## [0.10] 2019-08-02
+- Added cleanup for tomcat service. 
+- Updated CF to 5.11.0.17. 
+- Added Oracle DB VM. Reconfigured root pass and network.
+- Added MSSQL on Linux DB. Reconfigured network.
+
 
 ## [0.9] 2019-08-01
 - Added endpoint for tomcat. 

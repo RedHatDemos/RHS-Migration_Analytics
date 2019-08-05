@@ -1,0 +1,41 @@
+:scrollbar:
+:data-uri:
+:toc2:
+:imagesdir: images
+
+== Migration Analytics 0.1 beta - Enable CF menu
+
+:numbered:
+
+* SSH in the Cloudforms VM
+----
+# ssh cloudforms.example.com
+----
+
+* Edit `/opt/rh/cfme-gemset/bundler/gems/cfme-migration_analytics-ffe9830b6faa/lib/cfme/migration_analytics/engine.rb` file
+----
+# vi /opt/rh/cfme-gemset/bundler/gems/cfme-migration_analytics-ffe9830b6faa/lib/cfme/migration_analytics/engine.rb
+----
+
+* Change plugin to true
+----
+      def self.vmdb_plugin?
+        true # TODO: this should be changed back to true when we re-enable the menu entry below
+      end
+----
+
+* Enable menu by uncommenting the following lines
+----
+      # This plugin's menu entry has been removed temporarily while it is incomplete. When the data collection functionality is working, we will un-comment these lines.
+      initializer 'plugin-migration-analytics-menu', {:after => 'plugin-migration-menu'} do
+         Menu::CustomLoader.register(
+           Menu::Item.new('migration_analytics', N_('Migration Analytics'), 'migration_analytics', {:feature => 'migration_analytics', :any => true}, '/migration_analytics', :default, :migration)
+         )
+      end
+----
+
+* Restart the service
+----
+# systemctl restart evmserverd.service
+----
+

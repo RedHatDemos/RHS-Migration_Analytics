@@ -7,7 +7,6 @@ Changes in the Tranining and Demo environments for Infrastructure Migration Solu
 - Added Oracle DB VM. Reconfigured root pass and network.
 - Added MSSQL on Linux DB. Reconfigured network.
 
-
 ## [0.9] 2019-08-01
 - Added endpoint for tomcat. 
 - Changed password policy in vSphere. 

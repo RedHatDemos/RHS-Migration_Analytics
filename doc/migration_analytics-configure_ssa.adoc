@@ -8,9 +8,9 @@
 :numbered:
 
 
-* Install the VMware VDDK onto the CFME appliance. Follow the instructions here: https://www.tigeriq.co/sddk-on-vsphere-6/
+. Install the VMware VDDK onto the CFME appliance. Follow the instructions here: https://www.tigeriq.co/sddk-on-vsphere-6/
 
-* Add ‘Default’ (root) credentials for each hypervisor, e.g.
+. Add ‘Default’ (root) credentials for each hypervisor, e.g.
 
 image::cloudforms-configure_ssa-01.png[Configure Smart State Analysis 1]
 
@@ -25,11 +25,11 @@ If it's not possible to add credentials for the ESXi hosts (or there are too man
   :scan_via_host: false
 ----
 
-* Check that both the SmartProxy and SmartState Analysis workers are enabled (on) in Configuration → Settings → Server:
+. Check that both the SmartProxy and SmartState Analysis workers are enabled (on) in Configuration → Settings → Server:
 
 image::cloudforms-configure_ssa-03.png[Configure Smart State Analysis 3]
 
-* In Configuration → Settings, copy the ‘sample’ analysis profile:
+. In Configuration → Settings, copy the ‘sample’ analysis profile:
 
 image::cloudforms-configure_ssa-04.png[Configure Smart State Analysis 4]
 
@@ -37,7 +37,7 @@ Call the new profile ‘default’ (it must be this name):
 
 image::cloudforms-configure_ssa-05.png[Configure Smart State Analysis 5]
 
-* Now go to the ‘File’ tab of the new analysis profile:
+. Now go to the ‘File’ tab of the new analysis profile:
 
 image::cloudforms-configure_ssa-06.png[Configure Smart State Analysis 6]
 
@@ -59,7 +59,7 @@ C:/Program Files/IBM/WebSphere/AppServer
 
 Collect Contents should be false by default but true for /etc/group and /etc/oraInst.loc
 
-* Add the "VM SmartState Analysis profile” to the VMware provider:
+. Add the "VM SmartState Analysis profile” to the VMware provider:
 
 image::cloudforms-configure_ssa-07.png[Configure Smart State Analysis 7]
 
@@ -67,21 +67,21 @@ image::cloudforms-configure_ssa-08.png[Configure Smart State Analysis 8]
 
 When a control policy has been successfully added to the provider a gold ‘shield’ icon will appear on the provider’s tile icon.
 
-* Tag any VMs that shouldn’t be analyzed with the exclusions/do_not_analyze tag (Mainly Windows VMs running stateless applications such as Exchange server, possibly other databases). Snapshotting such VMs may cause data corruption.
+. Tag any VMs that shouldn’t be analyzed with the exclusions/do_not_analyze tag (Mainly Windows VMs running stateless applications such as Exchange server, possibly other databases). Snapshotting such VMs may cause data corruption.
 
-* Optionally (for large environments)  increase the following values in Configuration → Advanced settings to allow for more concurrent scans:
+. Optionally (for large environments)  increase the following values in Configuration → Advanced settings to allow for more concurrent scans:
 
 :coresident_miqproxy:
   :concurrent_per_ems: 1
   :concurrent_per_host: 1
 
-* Optionally (for very large multi-1000 VM environments) increase the number of VM Analysis Collector workers, or add further appliances and set the SmartProxy Affinity to delegate scanning of certain Hosts & Datastores to specific CFME appliances. 
+. Optionally (for very large multi-1000 VM environments) increase the number of VM Analysis Collector workers, or add further appliances and set the SmartProxy Affinity to delegate scanning of certain Hosts & Datastores to specific CFME appliances. 
 
-* For a one-off scan, select one/several/all VMs in the Compute → Infrastructure → Virtual Machines page and click Configuration → Perform SmartState Analysis
+.. For a one-off scan, select one/several/all VMs in the Compute → Infrastructure → Virtual Machines page and click Configuration → Perform SmartState Analysis
 
     For a scheduled scan, add a “VM Analysis” schedule to Configuration → Settings → Schedules
 
-* Monitor the status of the scans in the <Username> → Tasks page of the WebUI, and/or using the last_scan_on, last_scan_attempt_on and last_sync_on attributes on a VM object. Scanning can take up to 1 minute per VM. The "VM SmartState Analysis profile” should also tag VMs with operations/analysis_failed or operations/analysis_success as appropriate. 
+. Monitor the status of the scans in the <Username> → Tasks page of the WebUI, and/or using the last_scan_on, last_scan_attempt_on and last_sync_on attributes on a VM object. Scanning can take up to 1 minute per VM. The "VM SmartState Analysis profile” should also tag VMs with operations/analysis_failed or operations/analysis_success as appropriate. 
 
 When an SSA of a VM has completed successfully, the VM details page will have more information, i.e.
 

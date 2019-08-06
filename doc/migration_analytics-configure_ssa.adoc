@@ -1,0 +1,89 @@
+:scrollbar:
+:data-uri:
+:toc2:
+:imagesdir: images
+
+== Migration Analytics 0.1 beta - Configure Smart State Analysis
+
+:numbered:
+
+
+* Install the VMware VDDK onto the CFME appliance. Follow the instructions here: https://www.tigeriq.co/sddk-on-vsphere-6/
+
+* Add ‘Default’ (root) credentials for each hypervisor, e.g.
+
+image::cloudforms-configure_ssa-01.png[Configure Smart State Analysis 1]
+
+image::cloudforms-configure_ssa-02.png[Configure Smart State Analysis 2]
+
+When the host credentials are set correctly, a green ‘tick’ will appear in the bottom-right quadrant of the host’s tile icon.
+
+If it's not possible to add credentials for the ESXi hosts (or there are too many hosts with different credentials), VM scanning can still be performed using an authentication token provided by the vCenter. To configure this, set scan_via_host to be false in Configuration → Advanced settings:
+
+----
+:coresident_miqproxy:
+  :scan_via_host: false
+----
+
+* Check that both the SmartProxy and SmartState Analysis workers are enabled (on) in Configuration → Settings → Server:
+
+image::cloudforms-configure_ssa-03.png[Configure Smart State Analysis 3]
+
+* In Configuration → Settings, copy the ‘sample’ analysis profile:
+
+image::cloudforms-configure_ssa-04.png[Configure Smart State Analysis 4]
+
+Call the new profile ‘default’ (it must be this name):
+
+image::cloudforms-configure_ssa-05.png[Configure Smart State Analysis 5]
+
+* Now go to the ‘File’ tab of the new analysis profile:
+
+image::cloudforms-configure_ssa-06.png[Configure Smart State Analysis 6]
+
+Add new entries for the files that should be collected for Migration Analytics:
+
+----
+C:/Program Files/Microsoft SQL Server/110
+C:/Program Files/Microsoft SQL Server/120
+C:/Program Files/Microsoft SQL Server/130
+C:/Program Files/Microsoft SQL Server/140
+C:/Program Files/IBM/WebSphere/AppServer
+/etc/group
+/etc/oraInst.loc
+/u01/app/oraInventory
+/opt/mssql/bin/mssql-conf
+/usr/sap/hostctrl/exe/saphostctrl
+/etc/.ibm/registry/InstallationManager.dat
+----
+
+Collect Contents should be false by default but true for /etc/group and /etc/oraInst.loc
+
+* Add the "VM SmartState Analysis profile” to the VMware provider:
+
+image::cloudforms-configure_ssa-07.png[Configure Smart State Analysis 7]
+
+image::cloudforms-configure_ssa-08.png[Configure Smart State Analysis 8]
+
+When a control policy has been successfully added to the provider a gold ‘shield’ icon will appear on the provider’s tile icon.
+
+* Tag any VMs that shouldn’t be analyzed with the exclusions/do_not_analyze tag (Mainly Windows VMs running stateless applications such as Exchange server, possibly other databases). Snapshotting such VMs may cause data corruption.
+
+* Optionally (for large environments)  increase the following values in Configuration → Advanced settings to allow for more concurrent scans:
+
+:coresident_miqproxy:
+  :concurrent_per_ems: 1
+  :concurrent_per_host: 1
+
+* Optionally (for very large multi-1000 VM environments) increase the number of VM Analysis Collector workers, or add further appliances and set the SmartProxy Affinity to delegate scanning of certain Hosts & Datastores to specific CFME appliances. 
+
+* For a one-off scan, select one/several/all VMs in the Compute → Infrastructure → Virtual Machines page and click Configuration → Perform SmartState Analysis
+
+    For a scheduled scan, add a “VM Analysis” schedule to Configuration → Settings → Schedules
+
+* Monitor the status of the scans in the <Username> → Tasks page of the WebUI, and/or using the last_scan_on, last_scan_attempt_on and last_sync_on attributes on a VM object. Scanning can take up to 1 minute per VM. The "VM SmartState Analysis profile” should also tag VMs with operations/analysis_failed or operations/analysis_success as appropriate. 
+
+When an SSA of a VM has completed successfully, the VM details page will have more information, i.e.
+
+image::cloudforms-configure_ssa-09.png[Configure Smart State Analysis 9]
+

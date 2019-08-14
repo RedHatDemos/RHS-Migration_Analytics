@@ -15,12 +15,20 @@
 192.168.0.50 vcenter.example.com vcenter
   
 10.9.0.100 app.example.com app
+10.10.0.7 rhel7.example.com rhel7
+10.10.0.8 shareddisk1.example.com shareddisk1
+10.10.0.9 shareddisk2.example.com shareddisk2
+10.10.0.12 freebsd.example.com freebsd
 10.10.0.100 lb.example.com lb
 10.10.0.110 jboss0.example.com jboss0
 10.10.0.111 jboss1.example.com jboss1
 10.10.0.120 db.example.com db
 10.10.0.130 hana.example.com hana
+10.10.0.160 oracledb.example.com oracledb
 10.10.0.180 tomcat.example.com tomcat
+10.10.0.181 weblogic.example.com weblogic
+10.10.0.182 websphere.example.com websphere
+10.10.0.190 mssql.example.com mssql
 
 192.168.0.60 director.example.com director
 192.168.10.19 horizon.example.com horizon
@@ -28,8 +36,7 @@
 10.100.0.105 compute0.example.com compute0
 10.100.0.107 compute1.example.com compute1
 
-192.168.0.152 conversion.example.com conversion
+192.168.0.151 conversion.example.com conversion
 
 10.9.0.17   rhel76.example.com rhel76
 10.10.0.13   cirros.example.com cirros
-

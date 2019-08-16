@@ -7,7 +7,7 @@
 
 :numbered:
 
-== Overview
+== Introduction
 
 This Lab is built to help better understand the status of a running environment in order to assess, plan and execute a migration from a proprietary environment to an open source one. In order to do so, there are two tools built to help obtain and process data, initially focused on the Virtualization layer, but working to introspect the Operating System as well as the Applications. 
 [NOTE] 

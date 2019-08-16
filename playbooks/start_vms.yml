@@ -1,0 +1,59 @@
+---
+- hosts: workstation.example.com
+  become: true
+  tasks:
+    - set_fact: 
+        conn_ok: false
+
+    - name: Wait for NFS to be available
+      wait_for:
+        port: 2049
+        host: storage.example.com
+        delay: 10
+        timeout: 1200
+
+    - name: Wait for ESX and vCenter servers port 443 to be available
+      wait_for:
+        port: 443
+        host: "{{ item }}"
+        delay: 10
+        timeout: 1200
+      with_items:
+        - esx1.example.com
+        - esx2.example.com
+        - vcenter.example.com
+
+    - name: Wait for vCenter port 9443 to be available
+      wait_for:
+        port: 9443
+        host: vcenter.example.com
+        delay: 10
+        timeout: 1200
+
+    - name: Start db
+      include_tasks: loops/loop_db_vm.yml
+
+    - name: Start jboss0
+      include_tasks: loops/loop_jboss0_vm.yml
+
+    - name: Start jboss1
+      include_tasks: loops/loop_jboss1_vm.yml
+
+    - name: Start lb
+      include_tasks: loops/loop_lb_vm.yml
+
+    - name: Check powerstate on for ticket-monster vms
+      vmware_guest:
+        hostname: "{{ vcenter_ip }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: False
+        name: "{{ item }}"
+        state: poweredon
+      delegate_to: localhost
+      ignore_errors: yes
+      with_items:
+        - db
+        - jboss0
+        - jboss1
+        - lb

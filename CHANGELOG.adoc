@@ -10,6 +10,13 @@
 == Changelog 
 Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
 
+* [0.15] 2019-08-16
+- Added weblogic. 
+- Added template for RHEL7.
+- Fixes to internal repos
+- Rearranged playbooks
+
+
 * [0.14] 2019-08-12
 - Started adding weblogic VM. 
 - Tested adding Ansible playbooks. they require updating CF. 

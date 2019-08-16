@@ -100,7 +100,7 @@ image::blueprint.png[Blueprint]
 |`esx2.example.com` |`192.168.0.52` | N/A |ESXi hypervisor
 |=======
 
-The architecture of the deployment can be depicted as it follows:
+The architecture of the Migration Analytics environment and workflow can be depicted as it follows:
 
 image::architecture_diagram.png[Architecture Diagram]
 
@@ -112,8 +112,7 @@ Networks used in the environment
 | Network Name | IP range | Description
 | `Admin` | `192.168.x.x/16` | General administration and storage network.
 | `Service` | `10.10.0.x/24` | Internal network for the app to connect LB to EAP and to DB. 
-| `Servicer-DMZ` | `10.9.0.x/24` | External DMZ network to publish the app. Also access to the user API for OSP and Horizon (provider network)
-| `OSP Provisioning` | `10.100.0.x/24` | OpenStack provisioning network (includes Director and PXE), as well as access to the Admin API endpoint and control plane.  
+| `Service-DMZ` | `10.9.0.x/24` | External DMZ network to publish the app. Also access to the user API for OSP and Horizon (provider network)
 |=======
 
 * Virtual Machines 
@@ -126,8 +125,13 @@ This deployment of the migration environment includes the following VMs provisio
 | `jboss1.example.com` | 10.10.0.111 | Red Hat Enterprise Linux 7 host running JBoss EAP, connected to the `Service` network for ticket-monster.
 | `lb.example.com` | 10.10.0.100 , 10.9.0.100 | Red Hat Enterprise Linux 7 host running JBoss Core Service Apache HTTP server configured with mod_cluster to proxy traffic to `jboss0` and `jboss1`, connected to the `Service` and `Servicer-DMZ` networks for ticket-monster.
 | `db.example.com` | 10.10.0.120 | Red Hat Enterprise Linux 7 host running PostgreSQL providing service to `jboss0` and `jboss1` through the `Service` network for ticket-monster.
-| `hana.example.com` | 10.10.0.150 | Red Hat Enterprise Linux 7 HANA Express through the `Service` network.
+| `freebsd.example.com` | 10.10.0.100 | FreeBSD 12 connected through the `Service` network.
+| `hana.example.com` | 10.10.0.150 | Red Hat Enterprise Linux 7 SAP HANA Express through the `Service` network.
 | `tomcat.example.com` | 10.10.0.180 | CentOS 7 host running Apache Tomcat 8 server through the `Service` network.
+| `weblogic.example.com` | 10.10.0.181 | Red Hat Enterprise Linux 7 host running Oracle Weblogic 8 server through the `Service` network.
+| `websphere.example.com` | 10.10.0.182 | Red Hat Enterprise Linux 7 host running IBM WebSphere 8 server through the `Service` network.
+| `oracledb.example.com` | 10.10.0.160 | CentOS 7 host running Apache Tomcat 8 server through the `Service` network.
+| `msssql.example.com` | 10.10.0.190 | Red Hat Enterprise Linux 7 host running Microsoft SQL server through the `Service` network.
 |=======
 
 * An external service is configured as https://app-<YOUR-GUID>.rhpds.opentlc.com pointing to the Load Balancer to make the Ticket Monster app accessible.

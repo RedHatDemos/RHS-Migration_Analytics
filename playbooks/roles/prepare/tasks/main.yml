@@ -1,0 +1,33 @@
+---
+# tasks file for prepare
+#
+
+- name: Copy hosts file
+  copy:
+    src: hosts
+    dest: /etc/hosts
+    backup: yes
+
+- name: Disable external subs
+  command: 'subscription-manager repos --disable=*'
+  ignore_errors: yes
+  when: ansible_distribution == 'RedHat'
+
+- block:
+  - name: Install Packages
+    yum:
+      name: '{{ item }}'
+      state: present
+    with_items:
+      - bash-completion
+      - vim 
+      - lsof
+    ignore_errors: yes
+
+  - name: Update OS
+    yum:
+      name: '*'
+      state: latest
+    ignore_errors: yes
+
+  when: ansible_distribution == 'RedHat'

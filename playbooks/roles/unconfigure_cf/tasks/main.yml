@@ -1,0 +1,51 @@
+---
+# tasks file for rhel
+#
+
+- file: 
+    path: /etc/tower/SECRET_KEY
+    state: absent
+
+- name: Remove Ansible key from CloudForms
+  command: /var/www/miq/vmdb/bin/rails r 'MiqDatabase.first.ansible_secret_key  = nil'
+  args:
+    chdir: /var/www/miq/vmdb
+
+- name: Remove Ansible auth from CloudForms
+  command: /var/www/miq/vmdb/bin/rails r 'MiqDatabase.first.ansible_database_authentication.destroy'
+  args:
+    chdir: /var/www/miq/vmdb
+
+- name: Remove Ansible provider from CloudForms
+  command: /var/www/miq/vmdb/bin/rails r 'ManageIQ::Providers::EmbeddedAnsible::Provider.first.destroy'
+  args:
+    chdir: /var/www/miq/vmdb
+
+- name: Stop EVM services
+  service:
+    name: '{{ item }}'
+    state: stopped
+  with_items:
+    - evm-watchdog.service
+    - evmserverd.service
+
+- name: Drop Ansible Database in PostgreSQL
+  command: /opt/rh/rh-postgresql95/root/usr/bin/psql  -d vmdb_production -c 'DROP DATABASE awx'
+
+- name: Drop Ansible Role in PostgreSQL
+  command: /opt/rh/rh-postgresql95/root/usr/bin/psql  -d vmdb_production -c 'DROP ROLE awx'
+
+- name: Reset CloudForms database
+  command: rake evm:db:reset
+  args:
+    chdir: /var/www/miq/vmdb
+  environment: '{{ rails_env }}'
+
+- name: Start EVM services
+  service:
+    name: '{{ item }}'
+    state: started
+  with_items:
+    - evm-watchdog.service
+    - evmserverd.service
+

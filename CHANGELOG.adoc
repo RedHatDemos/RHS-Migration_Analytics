@@ -10,6 +10,19 @@
 == Changelog 
 Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
 
+* [0.14] 2019-08-12
+- Started adding weblogic VM. 
+- Tested adding Ansible playbooks. they require updating CF. 
+- Updating CF to 5.11.0.18. 
+- Added DNS interface for network 10.10.0.x.
+
+* [0.12] 2019-08-08
+- Added a conversion_host instance to OSP
+- Attached to CFME and installed conversion tools.
+
+* [0.11] 2019-08-05
+- Smart State Analysis profile created. link:doc/migration_analytics-configure_ssa.adoc[Instructions here].
+
 * [0.10] 2019-08-02
 - Added cleanup for tomcat service. 
 - Updated CF to 5.11.0.17. 

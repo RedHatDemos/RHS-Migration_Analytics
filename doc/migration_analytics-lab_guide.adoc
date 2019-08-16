@@ -47,7 +47,10 @@ Required versions of products used:
 |VMware vSphere |5.5+ (6.7 used)
 |=======
 
-The Migration Analytics analysis tool (WAT) is running as an application on the OpenShift instances that poser cloud.redhat.com. The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other opensource tools to run. for more information please check link:https://project-xavier.io[project-xavier.io].
+The Migration Analytics analysis tool (WAT) is running as an application on the OpenShift instances that power cloud.redhat.com. 
+
+[NOTE]
+The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other opensource tools to run. for more information please check link:https://project-xavier.io[project-xavier.io].
 
 == Requirements to access and perform this lab
 

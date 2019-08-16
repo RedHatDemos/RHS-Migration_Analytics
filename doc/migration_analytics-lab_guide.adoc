@@ -3,6 +3,14 @@
 :toc2:
 :imagesdir: images
 
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
 == Migration Analytics 0.1 beta - Lab Guide
 
 :numbered:
@@ -60,7 +68,7 @@ The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other open
 * SSH client
 * Firefox, or Chromium / Chrome
 +
-[NOTE]
+[WARNING]
 Grammarly plugin for Chrome causes problems when managing CloudForms. Please deactivate it while doing this lab.
 
 === Obtaining or enabling access credentials

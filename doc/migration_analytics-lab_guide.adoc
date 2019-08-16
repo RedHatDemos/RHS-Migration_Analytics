@@ -128,7 +128,7 @@ This deployment of the migration environment includes the following VMs provisio
 | `freebsd.example.com` | 10.10.0.100 | FreeBSD 12 connected through the `Service` network.
 | `hana.example.com` | 10.10.0.150 | Red Hat Enterprise Linux 7 SAP HANA Express through the `Service` network.
 | `tomcat.example.com` | 10.10.0.180 | CentOS 7 host running Apache Tomcat 8 server through the `Service` network.
-| `weblogic.example.com` | 10.10.0.181 | Red Hat Enterprise Linux 7 host running Oracle Weblogic 8 server through the `Service` network.
+| `weblogic.example.com` | 10.10.0.181 | Red Hat Enterprise Linux 7 host running Oracle Weblogic 12 server through the `Service` network.
 | `websphere.example.com` | 10.10.0.182 | Red Hat Enterprise Linux 7 host running IBM WebSphere 8 server through the `Service` network.
 | `oracledb.example.com` | 10.10.0.160 | CentOS 7 host running Apache Tomcat 8 server through the `Service` network.
 | `msssql.example.com` | 10.10.0.190 | Red Hat Enterprise Linux 7 host running Microsoft SQL server through the `Service` network.

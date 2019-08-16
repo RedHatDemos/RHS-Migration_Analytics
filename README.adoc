@@ -1,4 +1,11 @@
-# Migration Analytics
+:scrollbar:
+:data-uri:
+:toc2:
+
+== Migration Analytics 0.1 beta 
+
+:numbered:
+
 This repo will host the documentation for the Traning and Demo environments related to the Red Hat Migration Analytics project.
 
 This effort is part of the Red Hat Migration and Modernization Solutions.
@@ -6,5 +13,4 @@ This effort is part of the Red Hat Migration and Modernization Solutions.
 Check source code being developed here:
 http://project-xavier.io
 
-## Changelog
-[Changelog](CHANGELOG.md)
+include::CHANGELOG.adoc

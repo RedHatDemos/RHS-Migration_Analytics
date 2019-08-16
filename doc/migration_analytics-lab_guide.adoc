@@ -9,39 +9,33 @@
 
 == Overview
 
-This Lab Environment uses Red Hat CloudForms, and the Infrastructure Migration plugin (a.k.a. v2v-plugin) included with it, as a broker to migrate VMs from VMware vSphere to Red Hat Virtualization (RHV) and Red Hat OpenStack Platform (OSP). 
+This Lab is built to help better understand the status of a running environment in order to assess, plan and execute a migration from a proprietary environment to an open source one. In order to do so, there are two tools built to help obtain and process data, initially focused on the Virtualization layer, but working to introspect the Operating System as well as the Applications. 
+[NOTE] 
+If you are interested in migrating applications, please check the link:https://developers.redhat.com/products/rhamt/overview[Red Hat Application Migration Toolkit]
 
-The password to access all services is available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here]
+The Lab Environment uses, to obtain data, the *Workload Examination Toolkit* (a.k.a. WET) which is a Migration Analytics plugin within Red Hat CloudForms. This toolkit help obtain the data, and download it as a single file to it can be reviewed, and then uploaded to be analyzed.
+
+In order to analyze data, we will use the *Workload Analysis Tool* (a.k.a. WAT), which is an application running as SaaS on cloud.redhat.com. This tool will help us obtain the following reports to better understand the cost, risk and effort required to perform the migration:
+* Initial Savings Estimation
+* Workload Migration Summary
+* Workload Migration Inventory
+
+.Goal
+* the goal of this lab is to obtain a set of data from a running environment, review it, upload it to be analyzed, and understand the benefits of the outcome provided in order to better assess and drive a migration.
+
+== Overview
+
+The environment to be used for this lab provides a running VMware vSphere environment with different workloads on it, and a deployed and configured Red Hat CloudForms instancei, with the Migration Analytics plugin configured to obtain data from it.
 
 In this environment the following configuration steps are already done:
 
-* Configure the conversion hosts in the target providers (RHV and OSP)
-* Provide credentials for virtualization providers and conversion hosts in CloudForms
-* Assign tags for the conversion hosts in CloudForms
-* Configured Ansible hosts file in `workstation` and ssh keys exchanged (`/root/.ssh/id_rsa`)
+* Enabled Migration Analytics plugin in CloudForms
+* Added the `vSphere` virtualization provider in CloudForms
+* Provide credentials for virtualization providers and hosts in CloudForms
+* Configured Smart State Analysis in CloudForms
+* Configured Ansible, an ansible hosts file, in `workstation` andi, exchanged ssh keys (`/root/.ssh/id_rsa`) with all running machines.
 
-The providers are:
-
-* Source - VMware vSphere
-* Targets - Red Hat Virtualization and Red Hat OpenStack Platform
-
-After this initial step, the resource equivalence between the two providers, involved in each migration, has to be defined in an *Infrastucture Mapping* including:
-
-* Clusters
-* Storage Domains
-* Networks
-
-To perform the migration one *Conversion Host* has been configured for each target provider (RHV / OSP). 
-
-* In the RHV case the one of the RHEL hypervisors is configured as conversion host
-* In the OSP case an instance running in the `conversion` project is configured as conversion host
-
-Finally, a *Migration Plan* has to be executed to perform the final migration.
-
-.Goal
-* Migrate several VMs from VMware vSphere to Red Hat Virtualization and Red Hat OpenStack Platform, using Red Hat CloudForms as a broker, with the tooling included in the Red Hat Infrastructure Migration Solution
-+
-NOTE: The source VMs are not deleted, only powered off once the migration is done. This measure can also be used as "rollback" in case a migration failure occurs.
+The password to access all services is available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here]
 
 Required versions of products used:
 
@@ -49,12 +43,10 @@ Required versions of products used:
 |=======
 |Product |Version
 |CloudForms |5.0.0+ 
-|Red Hat Virtualization |4.3.0+
-|Red Hat OpenStack Platform |13+
-|Red Hat Enterprise Linux (Conversion Host) |7.6+
-|Conversion Host Image |1.7+
 |VMware vSphere |5.5+ (6.7 used)
 |=======
+
+The Migration Analytics analysis tool (WAT) is running as an application on the OpenShift instances that poser cloud.redhat.com. The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other opensource tools to run. for more information please check link:https://project-xavier.io[project-xavier.io].
 
 == Requirements to access and perform this lab
 
@@ -91,14 +83,6 @@ image::blueprint.png[Blueprint]
 |`workstation.example.com` |`192.168.0.10` | workstation-<YOUR-GUID>.rhpds.opentlc.com |Jump host and Ansible host
 |`storage.example.com` |`192.168.0.254` | workstation-<YOUR-GUID>.rhpds.opentlc.com | NFS server
 |`cf.example.com` |`192.168.0.100` |  cf-<YOUR-GUID>.rhpds.opentlc.com |CloudForms server
-|`rhvm.example.com` |`192.168.0.35` | rhvm-<YOUR-GUID>.rhpds.opentlc.com |Red Hat Virtualization Manager server
-|`kvm1.example.com` |`192.168.0.41` | kvm1-<YOUR-GUID>.rhpds.opentlc.com |KVM hypervisor managed by Red Hat Virtualization
-|`kvm2.example.com` |`192.168.0.42` | kvm2-<YOUR-GUID>.rhpds.opentlc.com |KVM hypervisor managed by Red Hat Virtualization
-|`horizon.example.com` |`192.168.10.19` | horizon-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform web UI and User API Endpoint
-|`director.example.com` |`192.168.0.60` | director-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform Director (Undercloud)
-|`controller.example.com` |`10.100.0.111` | controller-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform controller
-|`compute0.example.com` |`10.100.0.105` | compute0-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform compute
-|`compute1.example.com` |`10.100.0.107` | compute1-<YOUR-GUID>.rhpds.opentlc.com |Red Hat OpenStack Platform compute
 |`vcenter.example.com` |`192.168.0.50` | vcenter-<YOUR-GUID>.rhpds.opentlc.com |VMware vCenter server
 |`esx1.example.com` |`192.168.0.51` | N/A |ESXi hypervisor
 |`esx2.example.com` |`192.168.0.52` | N/A |ESXi hypervisor

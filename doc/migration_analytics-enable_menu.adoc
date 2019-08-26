@@ -12,13 +12,12 @@
 * Click the Advanced tab
 
 * Find the `prototype` section, and under `migration_analytics` in this section, change `enabled` from false to true
-[source,diff]
-----
+```diff
  :prototype:
    :migration_analytics:
 -    :enabled: false
 +    :enabled: true
-----
+```
 
 * Click Save
 

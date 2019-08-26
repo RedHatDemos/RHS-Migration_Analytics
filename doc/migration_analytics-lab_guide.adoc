@@ -18,10 +18,15 @@ endif::[]
 == Introduction
 
 This Lab is built to help better understand the status of a running environment in order to assess, plan and execute a migration from a proprietary environment to an open source one. In order to do so, there are two tools built to help obtain and process data, initially focused on the Virtualization layer, but working to introspect the Operating System as well as the Applications. 
++
 [NOTE] 
 If you are interested in migrating applications, please check the link:https://developers.redhat.com/products/rhamt/overview[Red Hat Application Migration Toolkit]
 
-The Lab Environment uses, to obtain data, the *Workload Examination Toolkit* (a.k.a. WET) which is a Migration Analytics plugin within Red Hat CloudForms. This toolkit help obtain the data, and download it as a single file to it can be reviewed, and then uploaded to be analyzed.
+The Lab Environment uses, to obtain data, the *Workload Examination Toolkit* (a.k.a. WET) which is a Migration Analytics plugin within Red Hat CloudForms. This toolkit help obtain the data, and download it as a single file, so it can be reviewed, and then uploaded to be analyzed.
++
+[NOTE]
+Updoming versions of Migration Analytics will be able to upload the data directly, as long as the appliance has access to internet.
+
 
 In order to analyze data, we will use the *Workload Analysis Tool* (a.k.a. WAT), which is an application running as SaaS on cloud.redhat.com. This tool will help us obtain the following reports to better understand the cost, risk and effort required to perform the migration:
 
@@ -34,7 +39,7 @@ In order to analyze data, we will use the *Workload Analysis Tool* (a.k.a. WAT),
 
 == Overview
 
-The environment to be used for this lab provides a running VMware vSphere environment with different workloads on it, and a deployed and configured Red Hat CloudForms instancei, with the Migration Analytics plugin configured to obtain data from it.
+The environment to be used for this lab provides a running VMware vSphere environment with different workloads on it, and a deployed and configured Red Hat CloudForms instance, with the Migration Analytics plugin configured to obtain data from it.
 
 In this environment the following configuration steps are already done:
 
@@ -56,7 +61,7 @@ Required versions of products used:
 |=======
 
 The Migration Analytics analysis tool (WAT) is running as an application on the OpenShift instances that power cloud.redhat.com. 
-
++
 [NOTE]
 The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other opensource tools to run. for more information please check link:https://project-xavier.io[project-xavier.io].
 
@@ -69,9 +74,13 @@ The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other open
 * Firefox, or Chromium / Chrome
 +
 [WARNING]
-Grammarly plugin for Chrome causes problems when managing CloudForms. Please deactivate it while doing this lab.
+Grammarly plugin for Chrome is known to cause problems when managing CloudForms. If you use it, please deactivate it while doing this lab.
 
 === Obtaining or enabling access credentials
+
+This lab coud be performed in a classroom (whether virtual or physical), in which case the proctors running the lab will provide instructions on how to get your own instance.
+
+If you plan to run it on a personal basis to learn, demo or simply "taste it" you may take these points into account: 
 
 . First time login?, forgot login or password? Go to https://www.opentlc.com/account 
 
@@ -138,6 +147,8 @@ This deployment of the migration environment includes the following VMs provisio
 
 == Getting Started
 
+=== Accessing the environment
+
 . Once the system is running, use SSH to access your demo server using your OPENTLC login name and private SSH key.
 
 * Using a Unix/Linux system:
@@ -158,10 +169,12 @@ $ ssh -i ~/.ssh/id_rsa batman-redhat.com@workstation-1e37.rhpds.opentlc.com
 $ sudo -i
 ----
 
-. Check the status of the whole environment, from the `workstation`, using ansible:
+=== Checking infrastructure status
+
+. Check the status of the infrastructure running the environment, from the `workstation`, using ansible:
 +
 ----
-# ansible all -m ping
+# ansible infra -m ping
 ----
 +
 This command establishes a connection to all the machines in the environment (except ESXi servers). 
@@ -175,20 +188,8 @@ cf.example.com | SUCCESS => {
 }
 ----
 + 
-To check the infrastructure machines the following command can be also used:
-+
-----
-# ansible infra -m ping
-----
-There are 4 VMs in the vCenter environment hosting an app with JBoss Core Services' Apache HTTP + modcluster as loadbalancer, two JBoss EAP 7 in domain mode, and a Postgresql database.
-To check only if these ones are running, you may use the following command:
-+
-----
-# ansible app -m ping
-----
-+ 
-[NOTE]
-As this environment is quite big, and it is generated and powered up for you in a cloud environment, some resources may suffer from issues or delays depending on the status of the cloud. You may need to manually start up or reboot some of them. Please review everything is running before proceeding forward.
+[WARNING]
+As this environment is generated and powered up for you in a cloud environment, some resources may suffer from issues or delays depending on the status of the cloud. You may need to check everything is up and running, and manually start up or reboot some of them. Follow carefully the upcoming steps to ensure your lab is in a proper running status.
 
 . Establish an SSH connection to the CloudForms server and monitor `automation.log`:
 +
@@ -199,9 +200,9 @@ As this environment is quite big, and it is generated and powered up for you in 
 +
 [TIP]
 The log entries are very long, so it helps if you stretch this window as wide as possible.
-+
-[NOTE]
-The log entries can be also seen in the CloudForms web UI in *Automation -> Automate -> Log*.
+
+
+=== Checking VMs status
 
 . Verify that the Ticket Monster app is running:
 

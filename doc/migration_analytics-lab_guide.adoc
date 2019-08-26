@@ -74,6 +74,9 @@ The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other open
 * Firefox, or Chromium / Chrome
 +
 [WARNING]
+In modern versions of Firefox (>60) an TLS negotiation issue may happen that will take aprox 40 seconds until timeout. This is due an issue with cert storage. You may create a new profile for it (with `firefox --ProfileManager`), or regenerate the cert storages by stopping it, moving `cert9.db` and `cert8.db` to an archive place and start firefox again.
++
+[WARNING]
 Grammarly plugin for Chrome is known to cause problems when managing CloudForms. If you use it, please deactivate it while doing this lab.
 
 === Obtaining or enabling access credentials

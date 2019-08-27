@@ -224,7 +224,7 @@ image::ssh_tunnel.png[SSH tunnel for Proxy]
 * SSH takes all the traffic from `localhost:3128` in the `laptop` to `localhost:3128` in the `workstation`
 * There is a squid proxy service listening in `localhost:3128` in the `workstation`
 * The browser in the `laptop` is configured to use the proxy in `localhost:3128` ... and all the traffic will be sent to the squid proxy in the `workstation`, including the DNS queries. 
-* The browser to any service using the internal name (i.e. https://vcenter.example.com ) ... let's do it!
+* The browser can point now to any service using the internal name (i.e. https://vcenter.example.com ) ... let's do it!
 
 . Let's fire up SSH in your workstation but this time with the "tunnel" option `-L localhost:3128:localhost:3128`
 +

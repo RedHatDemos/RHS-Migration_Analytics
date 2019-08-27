@@ -216,7 +216,7 @@ Before checking the vSphere environment we have to set up a tunnel to the runnin
 === Creating an SSH tunnel to the Environment
 
 To access all the resources, from our browser, the same way we would do it being connected directly to the management network, we are going to create an SSH tunnel from our working laptop to the `workstation` machine. This is the diagram of how it will work (explained below):
-+
+ 
 image::ssh_tunnel.png[SSH tunnel for Proxy]
 
 * Our `laptop` connects to `workstation` via ssh

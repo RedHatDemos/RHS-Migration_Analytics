@@ -145,8 +145,6 @@ This deployment of the migration environment includes the following VMs provisio
 | `msssql.example.com` | 10.10.0.190 | Red Hat Enterprise Linux 7 host running Microsoft SQL server through the `Service` network.
 |=======
 
-* An external service is configured as https://app-<YOUR-GUID>.rhpds.opentlc.com pointing to the Load Balancer to make the Ticket Monster app accessible.
-
 == Getting Started
 
 === Accessing the environment

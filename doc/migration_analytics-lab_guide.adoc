@@ -235,6 +235,7 @@ $ ssh -i /path/to/private_key -L localhost:3128:localhost:3128 <YOUR-OpenTLC-USE
 ----
 
 .  Running it shall simply provide a shell prompt. This an example on how it would look like:
++
 ----
 $ ssh -i ~/.ssh/id_rsa -L localhost:3128:localhost:3128 batman-redhat.com@workstation-1e37.rhpds.opentlc.com
 Last login: Mon Aug 26 05:03:34 2019 from workstation.example.com
@@ -250,7 +251,7 @@ image::localhost_proxy_config.png[Localhost Proxy Config]
 image::firefox_ssh_tunnel_vcenter.png[Firefox accessing vCenter using a tunnel]
 +
 [WARNING]
-If you haven't managed to make this work, please do not hesitate asking for help. It willbe key to proceed with the rest of the lab.
+If you haven't managed to make this work, please do not hesitate asking for help. It will be key to proceed with the rest of the lab.
 
 === Checking vSphere status
 

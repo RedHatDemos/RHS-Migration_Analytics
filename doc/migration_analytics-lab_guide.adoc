@@ -74,7 +74,7 @@ The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other open
 * Firefox, or Chromium / Chrome
 +
 [WARNING]
-In modern versions of Firefox (>60) an TLS negotiation issue may happen that will take aprox 40 seconds until timeout. This is due an issue with cert storage. You may create a new profile for it (with `firefox --ProfileManager`), or regenerate the cert storages by stopping it, moving `cert9.db` and `cert8.db` to an archive place and start firefox again.
+In modern versions of Firefox (>60) an TLS negotiation issue may happen that will take aprox 40 seconds until timeout, before it let you access the CloudForms interface. This is due an issue with Firefox cert storage. You may create a new profile for it (with `firefox --ProfileManager`), or regenerate the cert storages by stopping it, moving `cert9.db` and `cert8.db` to an archive place and start firefox again.
 +
 [WARNING]
 Grammarly plugin for Chrome is known to cause problems when managing CloudForms. If you use it, please deactivate it while doing this lab.
@@ -85,9 +85,7 @@ This lab coud be performed in a classroom (whether virtual or physical), in whic
 
 If you plan to run it on a personal basis to learn, demo or simply "taste it" you may take these points into account: 
 
-. First time login?, forgot login or password? Go to https://www.opentlc.com/account 
-
-. Note, your username should NOT have an *@* in it. 
+. First time login?, forgot login or password? Go to https://www.opentlc.com/account (Note, your username should NOT have an *@* in it.)
 
 . Red Hat Partners can also request access to the Red Hat Product Demo System (link:https://rhpds.redhat.com[RHPDS]) by sending an email to open-program@redhat.com. 
 
@@ -97,6 +95,7 @@ If you plan to run it on a personal basis to learn, demo or simply "taste it" yo
 
 A full new migration environment is deployed on every request. To make the environment unique a 4 character identifier is assigned to it (i.e. `1e37`), this identifier is referred in this documentation as *YOUR-GUID*.  
 
+* Systems
 The migration environment consists of the following systems:
 
 image::blueprint.png[Blueprint]
@@ -152,7 +151,7 @@ This deployment of the migration environment includes the following VMs provisio
 
 === Accessing the environment
 
-. Once the system is running, use SSH to access your demo server using your OPENTLC login name and private SSH key.
+. Once the environment is up and running, and we have it assigned to ourseleve, we use SSH to test access to it, by connecting to the `workstation` using your OPENTLC login name and private SSH key.
 
 * Using a Unix/Linux system:
 +
@@ -164,9 +163,11 @@ $ ssh -i /path/to/private_key <YOUR-OpenTLC-USERNAME-redhat.com>@workstation-<YO
 +
 ----
 $ ssh -i ~/.ssh/id_rsa batman-redhat.com@workstation-1e37.rhpds.opentlc.com
+Last login: Mon Aug 26 05:03:34 2019 from workstation.example.com
+[batman-redhat.com@workstation-1e37 ~]$ 
 ----
 
-. Become `root` using the provided password:
+. Once you chech that you can connect to workstation, become `root` using the provided password:
 +
 ----
 $ sudo -i
@@ -194,16 +195,63 @@ cf.example.com | SUCCESS => {
 [WARNING]
 As this environment is generated and powered up for you in a cloud environment, some resources may suffer from issues or delays depending on the status of the cloud. You may need to check everything is up and running, and manually start up or reboot some of them. Follow carefully the upcoming steps to ensure your lab is in a proper running status.
 
-. Establish an SSH connection to the CloudForms server and monitor `automation.log`:
+. Let's check that CloudForms is running by establishing an SSH connection to it (from workstation) and take a look at `automation.log`:
 +
 ----
-# ssh cf.example.com
-# tail -f /var/www/miq/vmdb/log/automation.log
+[root@workstation-repl ~]# ssh cf
+Welcome to the Appliance Console
+
+For a menu, please type: appliance_console
+Web console: https://cf.example.com:9090/ or https://192.168.0.100:9090/
+
+Last login: Mon Aug 26 07:08:05 2019 from 192.168.0.10
+[root@cf ~]# tail -f /var/www/miq/vmdb/log/automation.log
 ----
 +
 [TIP]
 The log entries are very long, so it helps if you stretch this window as wide as possible.
 
+Before checking the vSphere environment we have to set up a tunnel to the running environment.
+
+=== Creating an SSH tunnel to the Environment
+
+. To access all the resources, from our browser, the same way we would do it being connected directly to the management network, we are going to create an SSH tunnel from our working laptop to the `workstation` machine. This is the diagram of how it will work (explained below):
+image::ssh_tunnel.png[SSH tunnel for Proxy]
+
+* Our `laptop` connects to `workstation` via ssh
+* SSH is instructed to listen on `localhost:3128` in the `laptop`
+* SSH takes all the traffic from `localhost:3128` in the `laptop` to `localhost:3128` in the `workstation`
+* There is a squid proxy service listening in `localhost:3128` in the `workstation`
+* The browser in the `laptop` is configured to use the proxy in `localhost:3128` ... and all the traffic will be sent to the squid proxy in the `workstation`, including the DNS queries. 
+* The browser to any service using the internal name (i.e. https://vcenter.example.com ) ... let's do it!
+
+. Let's fire up SSH in your workstation but this time with the "tunnel" option `-L localhost:3128:localhost:3128`
++
+----
+$ ssh -i /path/to/private_key -L localhost:3128:localhost:3128 <YOUR-OpenTLC-USERNAME-redhat.com>@workstation-<YOUR-GUID>.rhpds.opentlc.com
+----
+
+.  Running it shall simply provide a shell prompt. This an example on how it would look like:
+----
+$ ssh -i ~/.ssh/id_rsa -L localhost:3128:localhost:3128 batman-redhat.com@workstation-1e37.rhpds.opentlc.com
+Last login: Mon Aug 26 05:03:34 2019 from workstation.example.com
+[batman-redhat.com@workstation-1e37 ~]$ 
+----
+
+. Now by configuring the browser to access proxy in `localhost` port `3128` for all protocols, we will be running it as if it was directly inside the environment, consumin the internal DNS names. This is an example for Firefox
++
+image::localhost_proxy_config.png[Localhost Proxy Config]
+
+. Time to point our browser to an internal URL ... http://vcenter.example.com
++
+image::firefox_ssh_tunnel_vcenter.png[Firefox accessing vCenter using a tunnel]
++
+[WARNING]
+If you haven't managed to make this work, please do not hesitate asking for help. It willbe key to proceed with the rest of the lab.
+
+=== Checking vSphere status
+
+TODO
 
 === Checking VMs status
 

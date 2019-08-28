@@ -30,6 +30,13 @@
         delay: 10
         timeout: 1200
 
+    - name: Wait for vCenter port 5480 to be available
+      wait_for:
+        port: 5480
+        host: vcenter.example.com
+        delay: 10
+        timeout: 1200
+
     - name: Start db
       include_tasks: loops/loop_db_vm.yml
 

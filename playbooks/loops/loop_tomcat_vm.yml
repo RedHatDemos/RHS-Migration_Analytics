@@ -25,7 +25,7 @@
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         validate_certs: False
-        name: lb
+        name: tomcat
         state: poweredoff
       delegate_to: localhost
       ignore_errors: yes
@@ -34,4 +34,4 @@
         seconds: 10
 
     - name: Try again
-      include_tasks: loop_lb_vm.yml
+      include_tasks: loop_tomcat_vm.yml

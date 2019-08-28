@@ -12,7 +12,7 @@
 
   - name: Check for weblogic running
     wait_for:
-      port: 8080
+      port: 7001
       host: weblogic.example.com
       delay: 3
       timeout: 90

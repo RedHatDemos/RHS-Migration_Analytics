@@ -1,0 +1,37 @@
+---
+- block:
+  - name: Start weblogic virtual machine
+    vmware_guest:
+      hostname: "{{ vcenter_ip }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: False
+      name: weblogic
+      state: poweredon
+    delegate_to: localhost
+
+  - name: Check for weblogic running
+    wait_for:
+      port: 8080
+      host: weblogic.example.com
+      delay: 3
+      timeout: 90
+
+
+  rescue:
+    - name: Force off weblogic virtual machine
+      vmware_guest:
+        hostname: "{{ vcenter_ip }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: False
+        name: weblogic
+        state: poweredoff
+      delegate_to: localhost
+      ignore_errors: yes
+
+    - pause:
+        seconds: 10
+
+    - name: Try again
+      include_tasks: loop_weblogic_vm.yml

@@ -10,6 +10,11 @@
 == Changelog 
 Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
 
+* [0.20] 2019-08-28
+- Improved start_vms playbooks. 
+- Added WebSphere VM.
+- Moved all VMs to a NFS 4.1 share on the same server. Renamed Datastores.
+
 * [0.19]
 - Added disklib libs to CF.
 

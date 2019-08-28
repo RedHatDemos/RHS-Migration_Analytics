@@ -10,6 +10,25 @@
 == Changelog 
 Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
 
+* [0.19]
+- Added disklib libs to CF.
+
+* [0.18]
+- redeployed weblogic with common paths. 
+- Updated start_vms script.
+
+* [0.17]
+- Split with IMS. 
+- Remove RHV and OSP. 
+- Updated CFME to 5.11.0.19. 
+- Cleaning exports in storage. 
+- Removed weblogic (to be redeployed with proper paths)
+
+* [0.16]
+- Recovered last BP save due to OSP fault. 
+- Imported MSSQL Windows DB. 
+- Splitting blueprint for MA and IMS.
+
 * [0.15] 2019-08-16
 - Added weblogic. 
 - Added template for RHEL7.

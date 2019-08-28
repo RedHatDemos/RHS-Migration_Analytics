@@ -15,7 +15,7 @@
       port: 443
       host: lb.example.com
       delay: 3
-      timeout: 60
+      timeout: 90
 
 
   rescue:

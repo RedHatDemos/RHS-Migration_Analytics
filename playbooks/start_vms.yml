@@ -42,6 +42,9 @@
     - name: Start lb
       include_tasks: loops/loop_lb_vm.yml
 
+    - name: Start tomcat
+      include_tasks: loops/loop_tomcat_vm.yml
+
     - name: Check powerstate on for ticket-monster vms
       vmware_guest:
         hostname: "{{ vcenter_ip }}"
@@ -57,3 +60,4 @@
         - jboss0
         - jboss1
         - lb
+        - tomcat

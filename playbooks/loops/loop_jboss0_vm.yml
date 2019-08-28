@@ -15,7 +15,7 @@
       port: 8443
       host: jboss0.example.com
       delay: 3
-      timeout: 60
+      timeout: 90
 
   rescue:
     - name: Force off jboss0 virtual machine

@@ -37,6 +37,13 @@
         delay: 10
         timeout: 1200
 
+    - name: Wait for vCenter port 8084 to be available
+      wait_for:
+        port: 8084
+        host: vcenter.example.com
+        delay: 10
+        timeout: 1200
+
     - name: Start db
       include_tasks: loops/loop_db_vm.yml
 
@@ -51,6 +58,9 @@
 
     - name: Start tomcat
       include_tasks: loops/loop_tomcat_vm.yml
+
+    - name: Start weblogic
+      include_tasks: loops/loop_weblogic_vm.yml
 
     - name: Check powerstate on for ticket-monster vms
       vmware_guest:

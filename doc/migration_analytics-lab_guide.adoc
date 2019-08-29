@@ -255,19 +255,19 @@ If you haven't managed to make this work, please do not hesitate asking for help
 === Checking vSphere status
 
 . The vSphere environment has been instantiated for us in the cloud and we will be using *nested virtualization* so, the performance may not be as good as in a full baremetal environment. Let's login in the WebUI:
-
++
 image::vsphere_checks_01.png[Access vCenter UI]
 
 . Use the administrator username which is `administrator@vsphere.local` and the provided password.
-
++
 image::vsphere_checks_02.png[Login in SSO UI]
 
 . Once in the vCenter UI, click on the *Hosts and Clusters* icon (1), then select *VMCluster* (2) and last, *Reset to Green* all the warnings shown
-
++
 image::vsphere_checks_03.png[Reset to Green]
 
 . VMs should have been started by the `start_vms` script in `workstation`. In case some VMs are stopped you may manually start them by selecting it and clicking on the *play* icon
-
++
 image::vsphere_checks_04.png[Press play]
 
 Now the environment is ready to move ahead. We can verify that the Ticket Monster app is running:
@@ -284,8 +284,5 @@ Prepare to manage the environment. From a web browser, open each of the URLs bel
 
 * *Username*: `admin`
 * *Password*: `<to_be_provided>`
-+
-[NOTE]
-You must accept all of the self-signed SSL certificates.
-+
+
 

@@ -338,41 +338,77 @@ TODO
 
 === Configure SmartState Analysis
 
-. Install the VMware VDDK onto the CFME appliance. Follow the instructions here: https://www.tigeriq.co/sddk-on-vsphere-6/
+. Install the VMware VDDK onto the CFME appliance. (Instructions also available here https://www.tigeriq.co/sddk-on-vsphere-6/ ). First copy the *VMware-vix-disklib* from the `workstation` folder to `cf`:
+----
+[root@workstation-repl ~]# scp /root/Downloads/VMware-vix-disklib-stable.tar.gz cf:/root/
+VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00 
+----
 
-. Add ‘Default’ (root) credentials for each hypervisor, e.g.
+. SSH into `cf` and *untar* the file
+----
+[root@cf-REPL ~]# tar xzvf VMware-vix-disklib-stable.tar.gz
+[Output removed]
+----
 
+. Create lib folder and copy content there:
+----
+[root@cf-REPL ~]# mkdir -p /usr/lib/vmware-vix-disklib
+[root@cf-REPL ~]# cd vmware-vix-disklib-distrib
+[root@cf-REPL vmware-vix-disklib-distrib]# cp -r bin64 /usr/lib/vmware-vix-disklib/
+[root@cf-REPL vmware-vix-disklib-distrib]# cp -r lib64 /usr/lib/vmware-vix-disklib/
+[root@cf-REPL vmware-vix-disklib-distrib]# cp -r include /usr/lib/vmware-vix-disklib/
+----
+
+. Create symbolic links to make them available and load them:
+----
+[root@cf-REPL ~]# ln -s /usr/lib/vmware-vix-disklib/lib64/libvixDiskLib.so /usr/lib/libvixDiskLib.so
+[root@cf-REPL ~]# ln -s /usr/lib/vmware-vix-disklib/lib64/libvixDiskLib.so.6 /usr/lib/libvixDiskLib.so.6
+[root@cf-REPL ~]# ldconfig
+----
+
+. Check they are added correctly
+----
+[root@cf-REPL ~]# ldconfig -p | grep vix
+        libvixDiskLib.so.6 (libc6,x86-64) => /lib/libvixDiskLib.so.6
+        libvixDiskLib.so (libc6,x86-64) => /lib/libvixDiskLib.so
+----
+
+. Now, we have to configure Smart State Analysis in CloudForms. We move to the UI in http://cf.example.com 
+
+. We go to *Compute -> Infrastructure -> Hosts" and add ‘Default’ (root) credentials for each hypervisor, e.g.
++
 image::cloudforms-configure_ssa-01.png[Configure Smart State Analysis 1]
-
++
 image::cloudforms-configure_ssa-02.png[Configure Smart State Analysis 2]
-
++
 When the host credentials are set correctly, a green ‘tick’ will appear in the bottom-right quadrant of the host’s tile icon.
-
++
+[WARNING]
 If it's not possible to add credentials for the ESXi hosts (or there are too many hosts with different credentials), VM scanning can still be performed using an authentication token provided by the vCenter. To configure this, set scan_via_host to be false in Configuration → Advanced settings:
-
++
 ----
 :coresident_miqproxy:
   :scan_via_host: false
 ----
 
-. Check that both the SmartProxy and SmartState Analysis workers are enabled (on) in Configuration → Settings → Server:
-
+. Check that both the SmartProxy and SmartState Analysis workers are enabled (on) in Configuration -> Settings -> Server:
++
 image::cloudforms-configure_ssa-03.png[Configure Smart State Analysis 3]
 
-. In Configuration → Settings, copy the ‘sample’ analysis profile:
-
+. In Configuration -> Settings, copy the ‘sample’ analysis profile:
++
 image::cloudforms-configure_ssa-04.png[Configure Smart State Analysis 4]
 
-Call the new profile ‘default’ (it must be this name):
-
+. Call the new profile ‘default’ (it must be this name):
++
 image::cloudforms-configure_ssa-05.png[Configure Smart State Analysis 5]
 
 . Now go to the ‘File’ tab of the new analysis profile:
-
++
 image::cloudforms-configure_ssa-06.png[Configure Smart State Analysis 6]
-
++
 Add new entries for the files that should be collected for Migration Analytics:
-
++
 ----
 C:/Program Files/Microsoft SQL Server/110
 C:/Program Files/Microsoft SQL Server/120
@@ -388,35 +424,37 @@ C:/Program Files/IBM/WebSphere/AppServer
 /opt/IBM/WebSphere/AppServer
 /opt/IBM/WebSphere/AppServer/profiles/AppSrv01
 ----
-
++
 Collect Contents should be false by default but true for /etc/group and /etc/oraInst.loc
 
 . Add the "VM SmartState Analysis profile” to the VMware provider:
-
++
 image::cloudforms-configure_ssa-07.png[Configure Smart State Analysis 7]
-
++
 image::cloudforms-configure_ssa-08.png[Configure Smart State Analysis 8]
-
++
+[NOTE]
 When a control policy has been successfully added to the provider a gold ‘shield’ icon will appear on the provider’s tile icon.
 
 . Tag any VMs that shouldn’t be analyzed with the exclusions/do_not_analyze tag (Mainly Windows VMs running stateless applications such as Exchange server, possibly other databases). Snapshotting such VMs may cause data corruption.
 
-. Optionally (for large environments)  increase the following values in Configuration → Advanced settings to allow for more concurrent scans:
-
+. Optionally (for large environments)  increase the following values in Configuration -> Advanced settings to allow for more concurrent scans:
+----
 :coresident_miqproxy:
   :concurrent_per_ems: 1
   :concurrent_per_host: 1
+----
 
 . Optionally (for very large multi-1000 VM environments) increase the number of VM Analysis Collector workers, or add further appliances and set the SmartProxy Affinity to delegate scanning of certain Hosts & Datastores to specific CFME appliances. 
 
-.. For a one-off scan, select one/several/all VMs in the Compute → Infrastructure → Virtual Machines page and click Configuration → Perform SmartState Analysis
+.. For a one-off scan, select one/several/all VMs in the Compute -> Infrastructure -> Virtual Machines page and click Configuration -> Perform SmartState Analysis
 
-    For a scheduled scan, add a “VM Analysis” schedule to Configuration → Settings → Schedules
+.. For a scheduled scan, add a “VM Analysis” schedule to Configuration -> Settings -> Schedules
 
 . Monitor the status of the scans in the <Username> → Tasks page of the WebUI, and/or using the last_scan_on, last_scan_attempt_on and last_sync_on attributes on a VM object. Scanning can take up to 1 minute per VM. The "VM SmartState Analysis profile” should also tag VMs with operations/analysis_failed or operations/analysis_success as appropriate. 
-
++
 When an SSA of a VM has completed successfully, the VM details page will have more information, i.e.
-
++
 image::cloudforms-configure_ssa-09.png[Configure Smart State Analysis 9]
 
 === Enable Migration Analytics Menu

@@ -339,18 +339,21 @@ TODO
 === Configure SmartState Analysis
 
 . Install the VMware VDDK onto the CFME appliance. (Instructions also available here https://www.tigeriq.co/sddk-on-vsphere-6/ ). First copy the *VMware-vix-disklib* from the `workstation` folder to `cf`:
++
 ----
 [root@workstation-repl ~]# scp /root/Downloads/VMware-vix-disklib-stable.tar.gz cf:/root/
 VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00 
 ----
 
 . SSH into `cf` and *untar* the file
++
 ----
 [root@cf-REPL ~]# tar xzvf VMware-vix-disklib-stable.tar.gz
 [Output removed]
 ----
 
 . Create lib folder and copy content there:
++
 ----
 [root@cf-REPL ~]# mkdir -p /usr/lib/vmware-vix-disklib
 [root@cf-REPL ~]# cd vmware-vix-disklib-distrib
@@ -360,6 +363,7 @@ VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00
 ----
 
 . Create symbolic links to make them available and load them:
++
 ----
 [root@cf-REPL ~]# ln -s /usr/lib/vmware-vix-disklib/lib64/libvixDiskLib.so /usr/lib/libvixDiskLib.so
 [root@cf-REPL ~]# ln -s /usr/lib/vmware-vix-disklib/lib64/libvixDiskLib.so.6 /usr/lib/libvixDiskLib.so.6
@@ -367,6 +371,7 @@ VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00
 ----
 
 . Check they are added correctly
++
 ----
 [root@cf-REPL ~]# ldconfig -p | grep vix
         libvixDiskLib.so.6 (libc6,x86-64) => /lib/libvixDiskLib.so.6

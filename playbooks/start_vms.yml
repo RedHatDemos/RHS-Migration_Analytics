@@ -74,6 +74,9 @@
     - name: Start MS SQL Server
       include_tasks: loops/loop_mssql_vm.yml
 
+    - name: Start Oracle DB Server
+      include_tasks: loops/loop_oracledb_vm.yml
+
 
     - name: Check powerstate on for ticket-monster vms
       vmware_guest:
@@ -92,4 +95,8 @@
         - lb
         - tomcat
         - weblogic
+        - websphere
         - freebsd
+        - hana
+        - mssql_db
+        - oracle_db

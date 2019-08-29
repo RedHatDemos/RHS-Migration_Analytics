@@ -55,6 +55,8 @@ C:/Program Files/IBM/WebSphere/AppServer
 /opt/mssql/bin/mssql-conf
 /usr/sap/hostctrl/exe/saphostctrl
 /etc/.ibm/registry/InstallationManager.dat
+/opt/IBM/WebSphere/AppServer
+/opt/IBM/WebSphere/AppServer/profiles/AppSrv01
 ----
 
 Collect Contents should be false by default but true for /etc/group and /etc/oraInst.loc

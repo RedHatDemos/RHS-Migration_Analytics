@@ -62,6 +62,16 @@
     - name: Start weblogic
       include_tasks: loops/loop_weblogic_vm.yml
 
+    - name: Start websphere
+      include_tasks: loops/loop_websphere_vm.yml
+
+    - name: Start FreeBSD
+      include_tasks: loops/loop_freebsd_vm.yml
+
+    - name: Start HANA
+      include_tasks: loops/loop_hana_vm.yml
+
+
     - name: Check powerstate on for ticket-monster vms
       vmware_guest:
         hostname: "{{ vcenter_ip }}"
@@ -79,3 +89,4 @@
         - lb
         - tomcat
         - weblogic
+        - freebsd

@@ -1,0 +1,37 @@
+---
+- block:
+  - name: Start websphere virtual machine
+    vmware_guest:
+      hostname: "{{ vcenter_ip }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: False
+      name: websphere
+      state: poweredon
+    delegate_to: localhost
+
+  - name: Check for websphere running
+    wait_for:
+      port: 22
+      host: websphere.example.com
+      delay: 3
+      timeout: 90
+
+
+  rescue:
+    - name: Force off websphere virtual machine
+      vmware_guest:
+        hostname: "{{ vcenter_ip }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: False
+        name: websphere
+        state: poweredoff
+      delegate_to: localhost
+      ignore_errors: yes
+
+    - pause:
+        seconds: 10
+
+    - name: Try again
+      include_tasks: loop_websphere_vm.yml

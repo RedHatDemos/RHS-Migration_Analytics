@@ -289,6 +289,23 @@ Prepare to manage the environment. From a web browser, open each of the URLs bel
 
 The *Workload Examination Toolkit* is being built within CloudForms to help examine the VMware environment and provide a set of data to analyze it. The initial steps will be taken with a preconfigured environment, which later on will be reset to a "just deployed" state to practice how to configure it.
 
+. Access CloudForms through it's URL http://cf.example.com and login using `admin` username and the provided passwrod.
++
+image::cloudforms_login.png[CloudForms Login]
+
+. Go to *Compute -> Infrastructure -> Providers*
++
+image::cloudforms_check_virtualization_provider_01.png[Check Virt Provider]
+
+. Select *vSphere* and click on *Authentication -> Re-Check Authentication Status*. This will confirm that the credentials work with the current infra.
++
+image::cloudforms_check_virtualization_provider_02.png[Check Virt Provider]
+
+. While the check is being performed, go to *Configuration -> Refresh Relationships and Power States* to get a fresh status of the running VMs
++
+image::cloudforms_check_virtualization_provider_03.png[Check Virt Provider]
++
+image::cloudforms_check_virtualization_provider_04.png[Check Virt Provider]
 
 
 

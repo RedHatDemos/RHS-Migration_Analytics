@@ -77,8 +77,7 @@
     - name: Start Oracle DB Server
       include_tasks: loops/loop_oracledb_vm.yml
 
-
-    - name: Check powerstate on for ticket-monster vms
+    - name: Check powerstate on VMs
       vmware_guest:
         hostname: "{{ vcenter_ip }}"
         username: "{{ vcenter_username }}"
@@ -100,3 +99,4 @@
         - hana
         - mssql_db
         - oracle_db
+        - wmssql_db

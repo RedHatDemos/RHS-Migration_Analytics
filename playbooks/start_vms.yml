@@ -71,6 +71,9 @@
     - name: Start HANA
       include_tasks: loops/loop_hana_vm.yml
 
+    - name: Start MS SQL Server
+      include_tasks: loops/loop_mssql_vm.yml
+
 
     - name: Check powerstate on for ticket-monster vms
       vmware_guest:

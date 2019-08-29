@@ -1,0 +1,35 @@
+# This is the default ansible 'hosts' file.
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+[infra:children]
+infra_vsphere
+infra_other
+
+[infra_vsphere]
+esx1.example.com ansible_python_interpreter=/bin/python
+esx2.example.com ansible_python_interpreter=/bin/python
+vcenter.example.com ansible_python_interpreter=/usr/bin/python
+
+[infra_other]
+workstation.example.com ansible_python_interpreter=/usr/bin/python
+storage.example.com ansible_python_interpreter=/usr/bin/python
+cf.example.com ansible_python_interpreter=/usr/libexec/platform-python
+
+[vms]
+lb.example.com
+jboss0.example.com
+jboss1.example.com
+db.example.com
+tomcat.example.com
+hana.example.com
+oracledb.example.com
+mssqldb.example.com
+weblogic.example.com
+websphere.example.com
+

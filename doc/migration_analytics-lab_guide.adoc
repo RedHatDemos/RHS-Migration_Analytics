@@ -285,4 +285,16 @@ Prepare to manage the environment. From a web browser, open each of the URLs bel
 * *Username*: `admin`
 * *Password*: `<to_be_provided>`
 
+== Examining VMware environment with Migration Analytics
+
+The *Workload Examination Toolkit* is being built within CloudForms to help examine the VMware environment and provide a set of data to analyze it. The initial steps will be taken with a preconfigured environment, which later on will be reset to a "just deployed" state to practice how to configure it.
+
+
+
+
+
+=== Configuring CloudForms to run as Migration Analytics Workload Examination Toolkit.
+
+To deploy a CloudForms appliance on VMware you may want to follow link::https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0-beta/html/installing_red_hat_cloudforms_on_red_hat_virtualization/index[the official CloudForms documentation].
+
 

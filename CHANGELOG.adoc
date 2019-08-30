@@ -8,7 +8,16 @@
 
 
 == Changelog 
-Changes in the Tranining and Demo environments for Infrastructure Migration Solution 1.2 and Migration Analytics 1.0 beta
+Changes in the Tranining and Demo environments Migration Analytics 0.1 beta
+
+* [0.22] 2019-08-29
+- Improvements to autostart procedure. 
+- Fixes to Windows MSSQL VM.
+
+* [0.21] 2019-08-29
+- Update CF to 5.11.0.22
+- Configured SSA and MA menu
+- Added more VMs to startup sequence
 
 * [0.20] 2019-08-28
 - Improved start_vms playbooks. 

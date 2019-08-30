@@ -337,6 +337,17 @@ image::migration_analytics_examination_07.png[Migration Analytics Examination]
 +
 image::migration_analytics_examination_08.png[Migration Analytics Examination]
 
+=== Analyzing the Data from Examination with the Workload Analysis Tool
+
+image::migration_analytics_WAT_01.png[Workload Analysis Tool]
+image::migration_analytics_WAT_02.png[Workload Analysis Tool]
+image::migration_analytics_WAT_03.png[Workload Analysis Tool]
+image::migration_analytics_WAT_04.png[Workload Analysis Tool]
+image::migration_analytics_WAT_05.png[Workload Analysis Tool]
+image::migration_analytics_WAT_06.png[Workload Analysis Tool]
+image::migration_analytics_WAT_07.png[Workload Analysis Tool]
+image::migration_analytics_WAT_08.png[Workload Analysis Tool]
+image::migration_analytics_WAT_09.png[Workload Analysis Tool]
 
 
 == Configuring CloudForms to run as Migration Analytics Workload Examination Toolkit.

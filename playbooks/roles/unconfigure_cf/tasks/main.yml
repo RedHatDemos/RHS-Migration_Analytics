@@ -33,10 +33,12 @@
     - evmserverd.service
 
 - name: Drop Ansible Database in PostgreSQL
-  command: /opt/rh/rh-postgresql95/root/usr/bin/psql  -d vmdb_production -c 'DROP DATABASE awx'
+  command: /usr/bin/psql  -d vmdb_production -c 'DROP DATABASE awx'
+  ignore_errors: yes
 
 - name: Drop Ansible Role in PostgreSQL
-  command: /opt/rh/rh-postgresql95/root/usr/bin/psql  -d vmdb_production -c 'DROP ROLE awx'
+  command: /usr/bin/psql  -d vmdb_production -c 'DROP ROLE awx'
+  ignore_errors: yes
 
 - name: Reset CloudForms database
   command: rake evm:db:reset

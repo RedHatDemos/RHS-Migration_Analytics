@@ -613,4 +613,8 @@ image::cloudforms-configure_ssa-09.png[Configure Smart State Analysis 9]
 # systemctl restart evmserverd.service
 ----
 
+=== Run new examination
+
+Now the environment is ready to run another examination.
+
 

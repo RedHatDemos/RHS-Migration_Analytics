@@ -384,31 +384,13 @@ To deploy a CloudForms appliance on VMware you may want to follow link::https://
 
 === CloudForms Reset
 
-Once the overview is done, we can proceed by accessing, via SSH, the `workstation`. Use SSH your OPENTLC login name and private SSH key.
-
-* Using a Unix/Linux system:
-+
-----
-$ ssh -i /path/to/private_key <YOUR-OpenTLC-USERNAME-redhat.com>@workstation-<YOUR-GUID>.rhpds.opentlc.com
-----
-
-* Example for user 'batman' and GUID '1e37', using the default ssh private key:
-+
-----
-$ ssh -i ~/.ssh/id_rsa batman-redhat.com@workstation-1e37.rhpds.opentlc.com
-----
-
-. Become `root` using the provided password:
-+
-----
-$ sudo -i
-----
+Once the overview is done, we can proceed by going back to, via SSH, to the `workstation`. 
 
 We continue by running, in `workstation`, the playbook to unconfigure the deployed CloudForms:
 
 ----
 # cd /root/RHS-Migration_Analytics/playbooks/
-# ansible-playbook unconfigure.yml
+# ansible-playbook unconfigure_cf.yml
 ----
 
 The playbook will stop the CloudForms services, will reset the database, and restart the services.

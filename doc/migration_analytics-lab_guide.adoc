@@ -405,7 +405,47 @@ After CloudForms database reset, the users will be removed and the `admin` will 
 
 === Add vSphere Provider
 
-TODO
+We will login in CloudForms using the appliance default credentials, being the user `admin` and using the default appliance password (*smartvm*).
++
+image::add_vsphere_provider_01.png[Add vSphere provider to CloudForms]
+
+. We click on *Add provider*. If the menu doesn't show up, we can go there by clicking on *Compute -> Infrastructure -> Providers*.
++
+image::add_vsphere_provider_02.png[Add vSphere provider to CloudForms]
+
+. We add all the data for the new infrastructure provider:
++
+* Name: "vSphere"
+* Type: "VMware vCenter"
+* Hostname: "vcenter.example.com"
+* Username: "administrator@vsphere.local"
+* Password: ... the provided one
++
+image::add_vsphere_provider_03.png[Add vSphere provider to CloudForms]
+
+. Once we click on *falidate* we can ensure that the credentials are OK and we can proceed to click the *Add* at the bottom of the page.
++
+image::add_vsphere_provider_04.png[Add vSphere provider to CloudForms]
+
+. We reach to the point where the *Insfrastructure Provider* has been added
++
+image::add_vsphere_provider_05.png[Add vSphere provider to CloudForms]
+
+. Now we shall add the credentials to access hosts. We go to *Compute -> Infrastructure -> Hosts*
++
+image::add_vsphere_provider_06.png[Add vSphere provider to CloudForms]
+
+. We select both hosts and click on *Configuration -> Edit Selected Items*
++
+image::add_vsphere_provider_07.png[Add vSphere provider to CloudForms]
+
+. Then we add the credentials being *Username* `root` and the provided password.
++
+image::add_vsphere_provider_08.png[Add vSphere provider to CloudForms]
+
+. We get the credentials saved successfuly
++
+image::add_vsphere_provider_09.png[Add vSphere provider to CloudForms]
 
 === Configure SmartState Analysis
 

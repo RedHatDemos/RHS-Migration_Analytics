@@ -10,6 +10,10 @@
 == Changelog 
 Changes in the Tranining and Demo environments Migration Analytics 0.1 beta
 
+* [0.23] 2019-09-02
+- Improved CF cleanup procedure. 
+- Lab guide procedure complete.
+
 * [0.22] 2019-08-29
 - Improvements to autostart procedure. 
 - Fixes to Windows MSSQL VM.

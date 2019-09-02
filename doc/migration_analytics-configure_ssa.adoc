@@ -59,6 +59,21 @@ C:/Program Files/IBM/WebSphere/AppServer
 /opt/IBM/WebSphere/AppServer/profiles/AppSrv01
 ----
 
+Extra entries
+
+----
+/opt/rh/eap7/root/usr/share/wildfly/domain/configuration/domain.xml
+/opt/rh/eap7/root/usr/share/wildfly/standalone/configuration/standalone.xml
+/opt/tomcat/bin/catalina.sh
+/opt/tomcat/conf/server.xml
+/u01/app/oracle/domains/base/bin/startNodeManager.sh
+/u01/app/oracle/domains/base/startWebLogic.sh
+/home/oracle/oraInventory
+/u01/app/oracle/domains/base/config/config.xml
+/var/lib/pgsql/data/postgresql.conf
+----
+
+
 Collect Contents should be false by default but true for /etc/group and /etc/oraInst.loc
 
 . Add the "VM SmartState Analysis profile” to the VMware provider:

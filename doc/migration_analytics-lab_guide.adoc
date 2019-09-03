@@ -47,7 +47,7 @@ In this environment the following configuration steps are already done:
 * Added the `vSphere` virtualization provider in CloudForms
 * Provide credentials for virtualization providers and hosts in CloudForms
 * Configured Smart State Analysis in CloudForms
-* Configured Ansible, an ansible hosts file, in `workstation` andi, exchanged ssh keys (`/root/.ssh/id_rsa`) with all running machines.
+* Configured Ansible, an ansible hosts file, in `workstation` and, exchanged ssh keys (`/root/.ssh/id_rsa`) with all running machines.
 
 The password to access all services is available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here]
 

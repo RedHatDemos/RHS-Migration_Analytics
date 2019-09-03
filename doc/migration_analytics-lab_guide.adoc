@@ -81,7 +81,7 @@ Grammarly plugin for Chrome is known to cause problems when managing CloudForms.
 
 === Obtaining or enabling access credentials
 
-This lab coud be performed in a classroom (whether virtual or physical), in which case the proctors running the lab will provide instructions on how to get your own instance.
+This lab could be performed in a classroom (whether virtual or physical), in which case the proctors running the lab will provide instructions on how to get your own instance.
 
 If you plan to run it on a personal basis to learn, demo or simply "taste it" you may take these points into account: 
 

@@ -10,7 +10,9 @@ This repo will host the documentation for the Traning and Demo environments rela
 
 This effort is part of the Red Hat Migration and Modernization Solutions.
 
+If you want to access the Demo and/or Training documentation please go link:doc[here].
+
 Check source code being developed here:
 http://project-xavier.io
 
-include::CHANGELOG.adoc[]
+The work being done to this environment can be followed in the link:CHANGELOG.adoc[CHANGELOG]

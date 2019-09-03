@@ -149,7 +149,7 @@ This deployment of the migration environment includes the following VMs provisio
 
 === Accessing the environment
 
-. Once the environment is up and running, and we have it assigned to ourseleve, we use SSH to test access to it, by connecting to the `workstation` using your OPENTLC login name and private SSH key.
+. Once the environment is up and running, and we have it assigned to ourselves, we use SSH to test access to it, by connecting to the `workstation` using your OPENTLC login name and private SSH key.
 
 * Using a Unix/Linux system:
 +

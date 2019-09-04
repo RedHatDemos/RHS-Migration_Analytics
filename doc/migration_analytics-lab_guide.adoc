@@ -423,7 +423,7 @@ image::add_vsphere_provider_02.png[Add vSphere provider to CloudForms]
 +
 image::add_vsphere_provider_03.png[Add vSphere provider to CloudForms]
 
-. Once we click on *falidate* we can ensure that the credentials are OK and we can proceed to click the *Add* at the bottom of the page.
+. Once we click on *validate* we can ensure that the credentials are OK and we can proceed to click the *Add* at the bottom of the page.
 +
 image::add_vsphere_provider_04.png[Add vSphere provider to CloudForms]
 

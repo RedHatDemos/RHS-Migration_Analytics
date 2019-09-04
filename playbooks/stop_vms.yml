@@ -15,6 +15,7 @@
         state: shutdownguest
       delegate_to: localhost
       ignore_errors: yes
+      state_change_timeout: 3
       with_items:
         - hana
         - mssql_db

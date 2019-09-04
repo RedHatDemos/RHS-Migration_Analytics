@@ -13,7 +13,6 @@
         validate_certs: False
         name: "{{ item }}"
         state: shutdownguest
-        state_change_timeout: 3
       delegate_to: localhost
       ignore_errors: yes
       with_items:

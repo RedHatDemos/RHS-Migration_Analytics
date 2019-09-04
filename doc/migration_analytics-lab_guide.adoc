@@ -393,11 +393,11 @@ We continue by running, in `workstation`, the playbook to unconfigure the deploy
 # ansible-playbook unconfigure_cf.yml
 ----
 
-The playbook will stop the CloudForms services, will reset the database, and restart the services.
+. The playbook will stop the CloudForms services, will reset the database, and restart the services.
 +
 image::reset_cloudforms_01.png[Launch CF reset playbook]
 
-There are parts of the playbook intended to cleanup the Ansible parts in the CloudForms database (which may not be configured). It is safe to ignore these errors (marked as *...ignoring*).
+. There are parts of the playbook intended to cleanup the Ansible parts in the CloudForms database (which may not be configured). It is safe to ignore these errors (marked as *...ignoring*).
 +
 image::reset_cloudforms_02.png[Launch CF reset playbook]
 

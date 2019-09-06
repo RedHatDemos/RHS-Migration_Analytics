@@ -28,3 +28,5 @@
         - jboss1
         - lb
         - freebsd
+        - cluster0
+        - cluster1

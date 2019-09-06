@@ -10,6 +10,20 @@
 == Changelog 
 Changes in the Tranining and Demo environments Migration Analytics 0.1 beta
 
+* [0.26] 2019-09-06
+- Clean ups. 
+- Updated startup and stop sequence to include clustervms
+
+* [0.25] 2019-09-04
+- Added cluster0 and cluster1 CentOS VMs with shared disk and Pacemaker.
+
+* [0.24] 2019-09-03
+- Added stop_vms.yml procedure.
+- Added 3 iSCSI targets to storage.
+- Added iSCSI datastore to vSphere.
+- Added iSCSI RDM to jboss0 and jboss1.
+- Added guest tools to FreeBSD. 
+
 * [0.23] 2019-09-02
 - Improved CF cleanup procedure. 
 - Lab guide procedure complete.

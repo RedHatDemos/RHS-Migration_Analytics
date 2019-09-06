@@ -77,6 +77,12 @@
     - name: Start Oracle DB Server
       include_tasks: loops/loop_oracledb_vm.yml
 
+    - name: Start Cluster0
+      include_tasks: loops/loop_cluster0_vm.yml
+
+    - name: Start Cluster1
+      include_tasks: loops/loop_cluster1_vm.yml
+
     - name: Check powerstate on VMs
       vmware_guest:
         hostname: "{{ vcenter_ip }}"
@@ -100,3 +106,5 @@
         - mssql_db
         - oracle_db
         - wmssql_db
+        - cluster0
+        - cluster1

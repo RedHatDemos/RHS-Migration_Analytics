@@ -278,7 +278,9 @@ Last login: Mon Aug 26 05:03:34 2019 from workstation.example.com
 [batman-redhat.com@workstation-1e37 ~]$ 
 ----
 
-. Now by configuring the browser to access proxy in `localhost` port `3128` for all protocols, we will be running it as if it was directly inside the environment, consumin the internal DNS names. This is an example for Firefox
+**COMMON**
+
+. Now by configuring the browser to access proxy in `localhost` port `3128` for all protocols, we will be running it as if it was directly inside the environment, consuming the internal DNS names. Internal DNS names used the domain `example.com`. This is how to configure the proxy, for this use case, in Firefox:
 +
 image::localhost_proxy_config.png[Localhost Proxy Config]
 

@@ -11,7 +11,7 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-== Migration Analytics 0.1 beta - Getting Started Guide
+== Migration Analytics 0.1 beta - Installation and User Guide
 
 :numbered:
 
@@ -44,9 +44,11 @@ In order to analyze data, we will use the Migration Analytics application runnin
 Request an evaluation subscription here: link:https://link_to_subs_request.redhat.com[Red Hat CloudForms Evaluation Subscription Form]
 
 To deploy and configure Red Hat CloudForms to examine the environment read the following guide:
+
 * link:migration_analytics-appliance_deployment_guide.adoc[Migration Analytics Appliance Deployment Guide]
 
 To analize the obtained data in Migration Analytics service in cloud.redhat.com read the following guide:
+
 * link:migration_analytics-user_guide.adoc[Migration Analytics User Guide]
 
 

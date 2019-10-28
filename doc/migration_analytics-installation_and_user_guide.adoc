@@ -45,10 +45,10 @@ Request an evaluation subscription here: link:https://link_to_subs_request.redha
 
 To deploy and configure Red Hat CloudForms to examine the environment read the following guide:
 
-* link:migration_analytics-appliance_deployment_guide.adoc[Migration Analytics Appliance Deployment Guide]
+* link:migration_analytics-appliance_deployment_chapter.adoc[Migration Analytics Appliance Deployment Chapter]
 
 To analize the obtained data in Migration Analytics service in cloud.redhat.com read the following guide:
 
-* link:migration_analytics-user_guide.adoc[Migration Analytics User Guide]
+* link:migration_analytics-user_chapter.adoc[Migration Analytics User Interface Chapter]
 
 

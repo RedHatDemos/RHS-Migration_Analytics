@@ -1,0 +1,52 @@
+:scrollbar:
+:data-uri:
+:toc2:
+:imagesdir: images
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Migration Analytics 0.1 beta - Getting Started Guide
+
+:numbered:
+
+== Welcome
+
+Welcome to *Migration Analytics*. This set of tools and services will help you assess the workloads in your environment, and understand the business and technical considerations, for migrating them to Red Hat’s platforms. It will do it by analyzing your environment and, using Red Hat’s data and analytics, and providing information and recommendations that are going to help you better evaluate the business and technical value involved.
+
+== Architecture
+
+The architecture of the Migration Analytics is hybrid, as it counts on having a tool (or tools) to examine the IT environment and collect basic data from it, and a cloud service to analyze the data and provide recommendations.
+
+An example of the workflow can be depicted as it follows:
+
+image::architecture_diagram.png[Architecture Diagram]
+
+Migration Analytics uses a custom plugin within Red Hat CloudForms to examine the environment. This plugin helps obtain the data, and download it as a single file, so it can be reviewed, and then uploaded to be analyzed.
+
+[NOTE]
+Upcoming versions of Migration Analytics will be able to upload the data directly, as long as the appliance has access to internet.
+
+
+In order to analyze data, we will use the Migration Analytics application running as SaaS on cloud.redhat.com. This tool will help us obtain the following reports to better understand the cost, risk and effort required to perform the migration:
+
+* Initial Savings Estimation
+* Workload Migration Summary
+* Workload Migration Inventory
+
+== Next steps
+
+Request an evaluation subscription here: link:https://link_to_subs_request.redhat.com[Red Hat CloudForms Evaluation Subscription Form]
+
+To deploy and configure Red Hat CloudForms to examine the environment read the following guide:
+* link:migration_analytics-appliance_deployment_guide.adoc[Migration Analytics Appliance Deployment Guide]
+
+To analize the obtained data in Migration Analytics service in cloud.redhat.com read the following guide:
+* link:migration_analytics-user_guide.adoc[Migration Analytics User Guide]
+
+

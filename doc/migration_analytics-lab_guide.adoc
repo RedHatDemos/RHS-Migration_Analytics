@@ -22,13 +22,13 @@ This Lab is built to help better understand the status of a running environment 
 [NOTE] 
 If you are interested in migrating applications, please check the link:https://developers.redhat.com/products/rhamt/overview[Red Hat Application Migration Toolkit]
 
-The Lab Environment uses, to obtain data, the *Workload Examination Toolkit* (a.k.a. WET) which is a Migration Analytics plugin within Red Hat CloudForms. This toolkit help obtain the data, and download it as a single file, so it can be reviewed, and then uploaded to be analyzed.
+Migration Analytics uses a custom plugin within Red Hat CloudForms to examine the environment. This plugin helps obtain the data, and download it as a single file, so it can be reviewed, and then uploaded to be analyzed.
 
 [NOTE]
-Updoming versions of Migration Analytics will be able to upload the data directly, as long as the appliance has access to internet.
+Upcoming versions of Migration Analytics will be able to upload the data directly, as long as the appliance has access to internet.
 
 
-In order to analyze data, we will use the *Workload Analysis Tool* (a.k.a. WAT), which is an application running as SaaS on cloud.redhat.com. This tool will help us obtain the following reports to better understand the cost, risk and effort required to perform the migration:
+In order to analyze data, we will use the Migration Analytics application running as SaaS on cloud.redhat.com. This tool will help us obtain the following reports to better understand the cost, risk and effort required to perform the migration:
 
 * Initial Savings Estimation
 * Workload Migration Summary

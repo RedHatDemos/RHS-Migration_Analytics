@@ -1,0 +1,58 @@
+:scrollbar:
+:data-uri:
+:toc2:
+:imagesdir: images
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Migration Analytics 0.1 beta - User Guide
+
+:numbered:
+
+=== Analyzing the Data from Examination with the Workload Analysis Tool
+
+Once we have the data we proceed to analyze it in our Software as a Service offering, the Workload Analysis Tool, which is part of cloud.redhat.com 
+
+. We access https://cloud.redhat.com/beta (until it's available, we will use an internal sandbox environment, please ask for help in migrate@redhat.com if you want access). We select in *Migration Services*, the entry *Migraion Analytics*
++
+image::migration_analytics_WAT_01.png[Workload Analysis Tool]
+
+. Once in the *Migration Analytics* app, we click on *Create*
++
+image::migration_analytics_WAT_02.png[Workload Analysis Tool]
+
+. We select the payload file to be analyzed. We may want to use this link:https://github.com/RedHatDemos/RHS-Migration_Analytics/blob/master/payloads/cfme_inventory-20190912-demolab_withSSA.tar.gz?raw=true[sample file] that contains more hosts and VMs than the lab environment. We choose our *Report Name* and provide a *Report Description*. It is important ot include the growth rate expected, as well as the planned migration per year.
++
+image::migration_analytics_WAT_03.png[Workload Analysis Tool]
+
+. The file gets uploaded
++
+image::migration_analytics_WAT_04.png[Workload Analysis Tool]
+
+. A new entry appears while the reports are being generated.
++
+image::migration_analytics_WAT_05.png[Workload Analysis Tool]
+
+. Once the report is created we can click on its name to access it
++
+image::migration_analytics_WAT_06.png[Workload Analysis Tool]
+
+. The first thing we see is the *Initial Savings Estimation* report with a set of numbers providing a high level approach to the expected savings based on the data retrieved from the infrastructure.
++
+image::migration_analytics_WAT_07.png[Workload Analysis Tool]
+
+. Clicking on *Workload Migration Summary* we can see (TODO) a report providing information on the efforts required to perform the migrations as well as more detailed data on the workloads to help plan further.
++
+image::migration_analytics_WAT_08.png[Workload Analysis Tool]
+
+. Clicking on *Workload Migration Inventory* provides a detailed list of the Virtual Machines to be migrated, with information on the workload, the operating system, as well as the estimated effort and recommended targets. This will help proceed with the detailed plan of the migration
++
+image::migration_analytics_WAT_09.png[Workload Analysis Tool]
+
+

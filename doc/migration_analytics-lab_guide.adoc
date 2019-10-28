@@ -428,7 +428,7 @@ image::migration_analytics_WAT_09.png[Workload Analysis Tool]
 
 == Configuring CloudForms to run as Migration Analytics Workload Examination Toolkit
 
-To deploy a CloudForms appliance on VMware you may want to follow link::https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0-beta/html/installing_red_hat_cloudforms_on_red_hat_virtualization/index[the official CloudForms documentation].
+To deploy a CloudForms appliance on VMware you may want to follow link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0-beta/html/installing_red_hat_cloudforms_on_red_hat_virtualization/index[the official CloudForms documentation].
 
 === CloudForms Reset
 

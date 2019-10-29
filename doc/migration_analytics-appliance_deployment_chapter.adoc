@@ -11,7 +11,7 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-== Migration Analytics 0.1 beta - Appliance Deployment Guide
+== Migration Analytics 0.1 beta - Appliance Deployment
 
 :numbered:
 

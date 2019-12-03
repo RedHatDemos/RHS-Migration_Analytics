@@ -11,8 +11,6 @@ Migration Analytics is based in the field experience of the Cloud Migration Fact
 
 . link:migration_analytics-lab_guide.adoc[Migration Analytics 0.1 beta Lab Guide]
 
-The password to access lab services is available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here].
-
 === Infrastructure Migration Solution v1.1 Supporting Documents
 . link:migration_analytics-configure_ssa.adoc[Configure Smart State Analysis in CloudForms 5.0]
 . link:migration_analytics-enable_menu.adoc[Enable Migration Analytics plugin in CloudForms 5.0]

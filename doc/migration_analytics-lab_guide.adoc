@@ -49,8 +49,6 @@ In this environment the following configuration steps are already done:
 * Configured Smart State Analysis in CloudForms
 * Configured Ansible, an ansible hosts file, in `workstation` and, exchanged ssh keys (`/root/.ssh/id_rsa`) with all running machines.
 
-The password to access all services is available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here]
-
 Required versions of products used:
 
 [cols="1,1",options="header"]
@@ -89,7 +87,7 @@ If you plan to run it on a personal basis to learn, demo or simply "taste it" yo
 
 . Red Hat Partners can also request access to the Red Hat Product Demo System (link:https://rhpds.redhat.com[RHPDS]) by sending an email to open-program@redhat.com. 
 
-. Passwords to the services are referred as `<to_be_provided>`. The credentials to access all services are available link:https://mojo.redhat.com/docs/DOC-1174612-accessing-red-hat-solutions-lab-in-rhpds[here]. If you can't access it please contact GPTE or the link:https://mojo.redhat.com/community/marketing/vertical-marketing/horizontal-solutions/people[Horizontal Solutions Team].
+. Passwords to the services: `r3dh4t1!`. If you can't access it please contact GPTE or the link:https://mojo.redhat.com/community/marketing/vertical-marketing/horizontal-solutions/people[Horizontal Solutions Team].
 
 == Environment
 

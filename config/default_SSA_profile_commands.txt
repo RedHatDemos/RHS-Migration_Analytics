@@ -1,0 +1,10 @@
+In VMDB dir ... (get there by runing 'vmdb' as root)
+
+
+To export run:
+
+bundle exec rake evm:export:scan_profiles -- --directory exports
+
+To import run:
+
+bundle exec rake evm:import:scan_profiles -- --source exports/default.yaml

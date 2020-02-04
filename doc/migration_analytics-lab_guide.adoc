@@ -378,10 +378,13 @@ image::migration_analytics_examination_07.png[Migration Analytics Examination]
 . Inventory collection will be complete. A file has been delivered in the filesystem of `cf.example.com`, in this case is the file `/tmp/cfme_inventory-20190829-2305-mvl6xy.tar.gz`. We will copy it manually. We may *return to summary*
 
 To copy the file to you local machine we first must copy it to the bastion host:
++
 ----
 $ scp root@192.168.0.100:/tmp/cfme_inventory-20190904-2341-1h3vafb.tar.gz .
 ----
+
 Then we need to copy the file to our local machine:
++
 ----
 $ scp lab-user@workstation-<GUID>.rhpds.opentlc.com:/home/lab-user/cfme_inventory-20190904-2341-1h3vafb.tar.gz .
 ----
@@ -448,11 +451,7 @@ We continue by running, in `workstation`, the playbook to unconfigure the deploy
 +
 image::reset_cloudforms_01.png[Launch CF reset playbook]
 
-. There are parts of the playbook intended to cleanup the Ansible parts in the CloudForms database (which may not be configured). It is safe to ignore these errors (marked as *...ignoring*).
-+
-image::reset_cloudforms_02.png[Launch CF reset playbook]
-
-After CloudForms database reset, the users will be removed and the `admin` will have the *password reset* to the default appliance password (*smartvm*). We shall change that default password to the provided one by clicking in `update password` in the CloudForms login screen and filling up the new password fields:
+. After CloudForms database reset, the users will be removed and the `admin` will have the *password reset* to the default appliance password (*smartvm*). We shall change that default password to the provided one by clicking in `update password` in the CloudForms login screen and filling up the new password fields:
 
 === Add vSphere Provider
 

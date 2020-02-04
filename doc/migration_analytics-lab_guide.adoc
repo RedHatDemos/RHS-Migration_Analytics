@@ -562,42 +562,40 @@ image::cloudforms-configure_ssa-04.png[Configure Smart State Analysis 4]
 [NOTE]
 In case you have a default profile, you may need to rename it, or remove it.
 
-. Call the new profile ‘default’ (it must be this name):
+. Now go to the cloudforms commandline in `cf`
++
+----
+# ssh cf
+----
+
+. Obtain an export of the default profile
++
+----
+# curl https://raw.githubusercontent.com/RedHatDemos/RHS-Migration_Analytics/master/config/default_SSA_profile.yaml > /root/default_SSA_profile.yaml
+----
++
+[NOTE]
+This profile can be created by exporting the `sample` profile and editing it.
+
+. Import the `default` profile
++
+----
+[root@cf-REPL ~]# vmdb
+[root@cf-REPL vmdb]# pwd
+/var/www/miq/vmdb
+[root@cf-REPL vmdb]# bundle exec rake evm:import:scan_profiles -- --source /root/default_SSA_profile.yaml
+----
+
+. Now you may want to go to *Configuration -> Settings* to review the new profile `default` (A reload of the page could be enough):
 +
 image::cloudforms-configure_ssa-05.png[Configure Smart State Analysis 5]
 
-. Now go to the ‘File’ tab of the new analysis profile:
+. Now you may want to edit the `default` pforile and check the `File` tab of it:
 +
 image::cloudforms-configure_ssa-06.png[Configure Smart State Analysis 6]
 +
-Add new entries for the files that should be collected for Migration Analytics. Collect Contents should be false by default but true for /etc/group and /etc/oraInst.loc:
+image::cloudforms-configure_ssa-06b.png[Configure Smart State Analysis 6]
 +
-----
-C:/Program Files/Microsoft SQL Server/110
-C:/Program Files/Microsoft SQL Server/120
-C:/Program Files/Microsoft SQL Server/130
-C:/Program Files/Microsoft SQL Server/140
-C:/Program Files/IBM/WebSphere/AppServer
-/etc/group
-/etc/oraInst.loc
-/u01/app/oraInventory
-/opt/mssql/bin/mssql-conf
-/usr/sap/hostctrl/exe/saphostctrl
-/etc/.ibm/registry/InstallationManager.dat
-/opt/IBM/WebSphere/AppServer
-/opt/IBM/WebSphere/AppServer/profiles/AppSrv01
-/opt/rh/eap7/root/usr/share/wildfly/domain/configuration/domain.xml
-/opt/rh/eap7/root/usr/share/wildfly/standalone/configuration/standalone.xml
-/opt/tomcat/bin/catalina.sh
-/opt/tomcat/conf/server.xml
-/u01/app/oracle/domains/base/bin/startNodeManager.sh
-/u01/app/oracle/domains/base/startWebLogic.sh
-/home/oracle/oraInventory
-/u01/app/oracle/domains/base/config/config.xml
-/var/lib/pgsql/data/postgresql.conf
-----
-
-
 
 . Add the "VM SmartState Analysis profile” to the VMware provider:
 +

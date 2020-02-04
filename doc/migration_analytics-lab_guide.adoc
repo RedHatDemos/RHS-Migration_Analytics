@@ -568,7 +568,7 @@ In case you have a default profile, you may need to rename it, or remove it.
 # ssh cf
 ----
 
-. Obtain an export of the default profile
+. Obtain a preconfigured export of the `default` profile. We provide this one for you:
 +
 ----
 # curl https://raw.githubusercontent.com/RedHatDemos/RHS-Migration_Analytics/master/config/default_SSA_profile.yaml > /root/default_SSA_profile.yaml

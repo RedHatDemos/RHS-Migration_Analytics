@@ -228,6 +228,9 @@ Last login: Mon Aug 26 07:08:05 2019 from 192.168.0.10
 The log entries are very long, so it helps if you stretch this window as wide as possible.
 
 Before checking the vSphere environment we have to set up a tunnel to the running environment.
++
+[WARNING]
+You must log out from the SSH session to go to the next section.
 
 === Creating an SSH tunnel to the Environment
 
@@ -244,7 +247,7 @@ image::ssh_tunnel.png[SSH tunnel for Proxy]
 
 Time to move ahead.
 
-**RHTE**
+**Workshop**
 
 . Let's fire up SSH in your workstation but this time with the "tunnel" option `-L localhost:3128:localhost:3128`
 +
@@ -306,10 +309,17 @@ image::vsphere_checks_03.png[Reset to Green]
 . VMs should have been started by the `start_vms` script in `workstation`. In case some VMs are stopped you may manually start them by selecting it and clicking on the *play* icon
 +
 image::vsphere_checks_04.png[Press play]
++
+[NOTE]
+you can also check the status of the `start_vms` script by looking at the ansible log in `workstation`
++
+----
+# tail -f /var/log/ansible.log
+----
 
 Now the environment is ready to move ahead. We can verify that the Ticket Monster app is running:
 
-* Point your browser to https://app-<YOUR-GUID>.rhpds.opentlc.com or http://app.example.com and check it is running:
+* Point your browser to  http://app.example.com and check it is running:
 +
 image::app-ticketmonster-running.png[Ticket Monster app running]
 [NOTE]

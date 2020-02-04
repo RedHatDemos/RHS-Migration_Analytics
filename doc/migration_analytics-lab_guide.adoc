@@ -501,7 +501,7 @@ image::add_vsphere_provider_09.png[Add vSphere provider to CloudForms]
 [WARNING]
 Since the appliance was already previously configured for Smart State Analysis, the vddk library and associated tasks with it exist. The steps below are used when configuring a brand new appliance.
 
-. Install the VMware VDDK onto the CFME appliance. (Instructions also available here https://www.tigeriq.co/sddk-on-vsphere-6/ ). First copy the *VMware-vix-disklib* from the `workstation` folder to `cf`:
+. Install the VMware VDDK onto the CFME appliance. First copy the *VMware-vix-disklib* from the `workstation` folder to `cf`:
 +
 ----
 [root@workstation-repl ~]# scp /root/Downloads/VMware-vix-disklib-stable.tar.gz cf:/root/

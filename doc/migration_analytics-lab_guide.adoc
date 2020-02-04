@@ -551,7 +551,7 @@ VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00
 
 . Now, we have to configure Smart State Analysis in CloudForms. We move to the UI in http://cf.example.com 
 
-. Check that both the SmartProxy and SmartState Analysis workers are enabled (on) in *Configuration -> Settings -> Server*:
+. Check that both the SmartProxy and SmartState Analysis workers are enabled (on). Click on the *gear icon* (Configuration) on the top right corner of the UI, and then go to *Settings -> Server*:
 +
 image::cloudforms-configure_ssa-03.png[Configure Smart State Analysis 3]
 

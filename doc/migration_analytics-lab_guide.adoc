@@ -497,6 +497,14 @@ image::add_vsphere_provider_08.png[Add vSphere provider to CloudForms]
 +
 image::add_vsphere_provider_09.png[Add vSphere provider to CloudForms]
 
+[WARNING]
+If it's not possible to add credentials for the ESXi hosts (or there are too many hosts with different credentials), VM scanning can still be performed using an authentication token provided by the vCenter. To configure this, set scan_via_host to be false in Configuration → Advanced settings:
++
+----
+:coresident_miqproxy:
+  :scan_via_host: false
+----
+
 === Configure SmartState Analysis
 [WARNING]
 Since the appliance was already previously configured for Smart State Analysis, the vddk library and associated tasks with it exist. The steps below are used when configuring a brand new appliance.
@@ -542,22 +550,6 @@ VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00
 ----
 
 . Now, we have to configure Smart State Analysis in CloudForms. We move to the UI in http://cf.example.com 
-
-. We go to *Compute -> Infrastructure -> Hosts* and add ‘Default’ (root) credentials for each hypervisor, e.g.
-+
-image::cloudforms-configure_ssa-01.png[Configure Smart State Analysis 1]
-+
-image::cloudforms-configure_ssa-02.png[Configure Smart State Analysis 2]
-+
-When the host credentials are set correctly, a green ‘tick’ will appear in the bottom-right quadrant of the host’s tile icon.
-+
-[WARNING]
-If it's not possible to add credentials for the ESXi hosts (or there are too many hosts with different credentials), VM scanning can still be performed using an authentication token provided by the vCenter. To configure this, set scan_via_host to be false in Configuration → Advanced settings:
-+
-----
-:coresident_miqproxy:
-  :scan_via_host: false
-----
 
 . Check that both the SmartProxy and SmartState Analysis workers are enabled (on) in *Configuration -> Settings -> Server*:
 +

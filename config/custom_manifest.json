@@ -240,6 +240,11 @@
         "disks_aligned": null,
         "ems_ref": null,
         "has_rdm_disk": null,
+        "cpu_affinity": null,
+        "memory_hot_add_enabled": null,
+        "cpu_hot_add_enabled": null,
+        "cpu_hot_remove_enabled": null,
+
         "host": {
           "ems_ref": null
         },

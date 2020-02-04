@@ -55,7 +55,7 @@ Required versions of products used:
 |=======
 |Product |Version
 |CloudForms |5.0.0+ 
-|VMware vSphere |5.5+ (6.7 used)
+|VMware vSphere |6.0+ (6.7 used)
 |=======
 
 The Migration Analytics analysis tool (WAT) is running as an application on the OpenShift instances that power cloud.redhat.com. 

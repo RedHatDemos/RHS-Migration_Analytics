@@ -1,0 +1,11 @@
+Get the manifest
+
+curl --user username@redhat.com https://cloud.redhat.com/api/topological-inventory/cfme/manifest/5.11 > custom_manifest.json
+
+You can then create the payload as we did before from Adam’s instructions, i.e.
+
+# vmdb
+$ rails c
+payload = Cfme::CloudServices::DataCollector.collect(JSON.parse(File.read("custom_manifest.json")), ManageIQ::Providers::Vmware::InfraManager.first)
+Cfme::CloudServices::DataPackager.package(payload)
+=> #Pathname:/tmp/cfme_inventory20190723-2921-iqjrho.tar.gz

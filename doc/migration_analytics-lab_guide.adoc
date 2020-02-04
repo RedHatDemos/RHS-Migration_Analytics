@@ -597,9 +597,11 @@ image::cloudforms-configure_ssa-06.png[Configure Smart State Analysis 6]
 image::cloudforms-configure_ssa-06b.png[Configure Smart State Analysis 6]
 +
 
-. Add the "VM SmartState Analysis profile” to the VMware provider:
+. Go to *Compute -> Infrastructure -> Providers*. Select the `vSphere` provider and then go to *Policy -> Manage Policies*
 +
 image::cloudforms-configure_ssa-07.png[Configure Smart State Analysis 7]
+
+. Select *VM SmartState Analysis profile* to add it to the the VMware `vSphere` provider `vSphere`. Click *Save*:
 +
 image::cloudforms-configure_ssa-08.png[Configure Smart State Analysis 8]
 +

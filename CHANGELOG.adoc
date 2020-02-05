@@ -10,6 +10,16 @@
 == Changelog 
 Changes in the Tranining and Demo environments Migration Analytics 0.1 beta
 
+* [0.29] 2020-02-04
+- Updated manifest
+- Updated default profile
+
+* [0.28] 2020-01-23
+- Run SSA on all VMs
+
+* [0.27] 2020-01-22
+- Updated CFME to version 5.11.1.2-1 (eq CF 5.0 GA)
+
 * [0.26] 2019-09-06
 - Clean ups. 
 - Updated startup and stop sequence to include clustervms

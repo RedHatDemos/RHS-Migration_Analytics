@@ -22,7 +22,7 @@ cp mastertemplate.json keating.json
 
 while [ $i -lt $1 ]; 
 do 
-	random=$((1 + RANDOM % 3))
+	random=$((1 + RANDOM % 4))
 	a="${i}1"
 	b="${i}2"
 	c="${i}3"
@@ -84,4 +84,4 @@ sed -i '$x;$G;/\(.*\),/!H;//!{$!d};  $!x;$s//\1/;s/^\n//' keating.json
 
 
 echo "compressing"
-tar -zcvf keating-$(date '+%Y%m%d_%H%M')-$1.tar.gz keating.json
+tar -zcvf keating-payload-$(date '+%Y%m%d_%H%M')-$1.tar.gz keating.json

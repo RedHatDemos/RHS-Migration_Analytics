@@ -1,0 +1,2 @@
+[root@cf-REPL vmdb]# curl --user mperezco@redhat.com https://cloud.redhat.com/api/topological-inventory/cfme/manifest/5.11 > /var/www/miq/vmdb/manifest.json
+/opt/rh/cfme-gemset/bundler/gems/cfme-migration_analytics-91229e2ea6e2/config/default-manifest.json

@@ -1,0 +1,179 @@
+{
+  "ManageIQ::Providers::Vmware::InfraManager": {
+    "id": 2,
+    "name": "VMware",
+    "type": "ManageIQ::Providers::Vmware::InfraManager",
+    "guid": "1efeb5bc-8c74-404c-b87c-a2f98798917c",
+    "uid_ems": "c6339c4f-c58a-4dc5-afbf-49d7ed4fb2b3",
+    "api_version": "6.5",
+    "emstype_description": "VMware vCenter",
+    "hostname": "vcenter.v2v.bos.redhat.com",
+    "ems_licenses": [
+      {
+        "id": 1,
+        "ems_ref": "00000-00000-00000-00000-00000",
+        "name": "Product Evaluation",
+        "license_key": "00000-00000-00000-00000-00000",
+        "license_edition": "eval",
+        "total_licenses": 0,
+        "used_licenses": null
+      },
+      {
+        "id": 2,
+        "ems_ref": "0041L-4CKEL-18U9N-021HP-809KJ",
+        "name": "VMware vCenter Server 6 Standard",
+        "license_key": "0041L-4CKEL-18U9N-021HP-809KJ",
+        "license_edition": "vc.standard.instance",
+        "total_licenses": 600,
+        "used_licenses": 100
+      },
+      {
+        "id": 3,
+        "ems_ref": "UM293-4Y3E0-N8U8T-0Y0R2-0JTNJ",
+        "name": "VMware vSphere 6 Enterprise Plus",
+        "license_key": "UM293-4Y3E0-N8U8T-0Y0R2-0JTNJ",
+        "license_edition": "esx.enterprisePlus.cpuPackage",
+        "total_licenses": 6000,
+        "used_licenses": 4000
+      }
+    ],
+    "ems_extensions": [
+      {
+        "id": 1,
+        "ems_ref": "com.vmware.vim.sms",
+        "key": "com.vmware.vim.sms",
+        "company": "VMware Inc.",
+        "label": "VMware vCenter Storage Monitoring Service",
+        "version": "5.5"
+      },
+      {
+        "id": 2,
+        "ems_ref": "com.vmware.vim.vsm",
+        "key": "com.vmware.vim.vsm",
+        "company": "VMware Inc.",
+        "label": "vService Manager",
+        "version": "6.5"
+      },
+      {
+        "id": 3,
+        "ems_ref": "VirtualCenter",
+        "key": "VirtualCenter",
+        "company": null,
+        "label": "VirtualCenter dynamic events and tasks",
+        "version": "1.0"
+      },
+      {
+        "id": 4,
+        "ems_ref": "com.vmware.vim.stats.report",
+        "key": "com.vmware.vim.stats.report",
+        "company": null,
+        "label": "Performance charts built-in extension",
+        "version": "1.0.0"
+      },
+      {
+        "id": 5,
+        "ems_ref": "com.vmware.vim.sps",
+        "key": "com.vmware.vim.sps",
+        "company": "VMware Inc.",
+        "label": "VMware vSphere Profile-driven Storage Service",
+        "version": "5.0"
+      },
+      {
+        "id": 6,
+        "ems_ref": "com.vmware.vim.vcha",
+        "key": "com.vmware.vim.vcha",
+        "company": null,
+        "label": "description",
+        "version": "1.0"
+      },
+      {
+        "id": 7,
+        "ems_ref": "hostdiag",
+        "key": "hostdiag",
+        "company": null,
+        "label": "description",
+        "version": "1.0"
+      },
+      {
+        "id": 8,
+        "ems_ref": "com.vmware.vim.ls",
+        "key": "com.vmware.vim.ls",
+        "company": "VMware, Inc.",
+        "label": "License Services",
+        "version": "5.0"
+      },
+      {
+        "id": 9,
+        "ems_ref": "com.vmware.vim.eam",
+        "key": "com.vmware.vim.eam",
+        "company": "VMware Inc.",
+        "label": "vSphere ESX Agent Manager",
+        "version": "6.5"
+      },
+      {
+        "id": 10,
+        "ems_ref": "com.vmware.rbd",
+        "key": "com.vmware.rbd",
+        "company": "VMware, Inc.",
+        "label": "RuleEngine",
+        "version": "6.5.0.63200"
+      },
+      {
+        "id": 11,
+        "ems_ref": "com.vmware.vsan.health",
+        "key": "com.vmware.vsan.health",
+        "company": null,
+        "label": "VMware vSAN Health Service",
+        "version": "1.0.0"
+      },
+      {
+        "id": 12,
+        "ems_ref": "com.vmware.vmcam",
+        "key": "com.vmware.vmcam",
+        "company": "VMware, Inc.",
+        "label": "vSphere Authentication Proxy",
+        "version": "6.0"
+      },
+      {
+        "id": 13,
+        "ems_ref": "com.vmware.vcIntegrity",
+        "key": "com.vmware.vcIntegrity",
+        "company": null,
+        "label": "VMware vSphere Update Manager Extension",
+        "version": "6.5.0.39808"
+      },
+      {
+        "id": 14,
+        "ems_ref": "com.vmware.ovf",
+        "key": "com.vmware.ovf",
+        "company": null,
+        "label": "Open Virtualization Format Service",
+        "version": "6.0"
+      },
+      {
+        "id": 15,
+        "ems_ref": "com.vmware.vcenter.iso",
+        "key": "com.vmware.vcenter.iso",
+        "company": null,
+        "label": "vSphere ISO Service",
+        "version": "6.0"
+      },
+      {
+        "id": 16,
+        "ems_ref": "com.vmware.cl",
+        "key": "com.vmware.cl",
+        "company": null,
+        "label": "vSphere Content Library Service",
+        "version": "6.0"
+      }
+    ],
+    "ems_clusters": [
+      {
+        "id": 1,
+        "name": "V2V_Cluster",
+        "type": null,
+        "ems_ref": "domain-c26",
+        "v_parent_datacenter": "V2V-DC"
+      }
+    ],
+    "hosts": [

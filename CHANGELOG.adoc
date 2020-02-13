@@ -10,6 +10,16 @@
 == Changelog 
 Changes in the Tranining and Demo environments Migration Analytics 0.1 beta
 
+* [0.32] 2020-02-13
+- Fixed ansible hosts file
+
+* [0.31] 2020-02-12
+- Added ssh keys for `labuser`  for Summit
+
+* [0.30] 2020-02-11
+- Clean up unconfigure_cf
+- Removing obsolete files in workstation
+
 * [0.29] 2020-02-04
 - Updated manifest
 - Updated default profile

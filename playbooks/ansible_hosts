@@ -29,7 +29,7 @@ db.example.com
 tomcat.example.com
 hana.example.com
 oracledb.example.com
-mssqldb.example.com
+mssql.example.com
 weblogic.example.com
 websphere.example.com
 

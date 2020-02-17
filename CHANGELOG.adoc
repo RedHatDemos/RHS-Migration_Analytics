@@ -10,6 +10,10 @@
 == Changelog 
 Changes in the Tranining and Demo environments Migration Analytics 0.1 beta
 
+
+* [0.33] 2020-04-17
+- Updated SSA data gathered
+
 * [0.32] 2020-02-13
 - Fixed ansible hosts file
 

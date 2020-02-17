@@ -1,4 +1,3 @@
-{
   "ManageIQ::Providers::Vmware::InfraManager": {
     "id": 2,
     "name": "VMware",
@@ -7,7 +6,7 @@
     "uid_ems": "c6339c4f-c58a-4dc5-afbf-49d7ed4fb2b3",
     "api_version": "6.5",
     "emstype_description": "VMware vCenter",
-    "hostname": "vcenter.v2v.bos.redhat.com",
+    "hostname": "vcenter.ma.mad.redhat.lan",
     "ems_licenses": [
       {
         "id": 1,
@@ -20,7 +19,7 @@
       },
       {
         "id": 2,
-        "ems_ref": "0041L-4CKEL-18U9N-021HP-809KJ",
+        "ems_ref": "12345-67890-18U9N-021HP-809KJ",
         "name": "VMware vCenter Server 6 Standard",
         "license_key": "0041L-4CKEL-18U9N-021HP-809KJ",
         "license_edition": "vc.standard.instance",
@@ -29,9 +28,9 @@
       },
       {
         "id": 3,
-        "ems_ref": "UM293-4Y3E0-N8U8T-0Y0R2-0JTNJ",
+        "ems_ref": "12345-67890-N8U8T-0Y0R2-0JTNJ",
         "name": "VMware vSphere 6 Enterprise Plus",
-        "license_key": "UM293-4Y3E0-N8U8T-0Y0R2-0JTNJ",
+        "license_key": "12345-67890-N8U8T-0Y0R2-0JTNJ",
         "license_edition": "esx.enterprisePlus.cpuPackage",
         "total_licenses": 6000,
         "used_licenses": 4000

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Creates a payload file with certain number of hosts for migration analytics consumption
-# ./keating.sh 5 will create keating.json with 5 hosts in it
+# ./keating.sh -h 50 will create keating.json with 50 hosts in it
 
 # Uncomment for debugging.
 #set -x
@@ -16,15 +16,15 @@ prepare_payload () {
     echo "{" > keating.json
 }
 
-add_hosts () {
+add_provider () {
     echo "adding mastertemplate.json to keating.json"
     cat mastertemplate.json >> keating.json
 }
 
 
-add_vms () {
+add_host () {
 i=1
-    while [[ $i -lt $TOTALVMS ]]; do 
+    while [[ $i -lt $TOTALHOSTS ]]; do 
 	    random=$((1 + RANDOM % 4))
 	    a="${i}1"
 	    b="${i}2"
@@ -35,7 +35,7 @@ i=1
 	    g="${i}7"
 	    h="${i}8"
 	    j="${i}9"
-        # In place counter vor VMs
+        # In place counter vor Hosts
 	    echo -ne "creating host ${i}"\\r
 	    sed -e "s/IDENTIFIER/$i/" \
 	        -e "s/SHORTNAME/host-$i/"  \
@@ -69,12 +69,12 @@ i=1
             -e "s/FQDN/host-$i.example.com/g" hosttemplate${random}.json >> keating.json
 	    i=$[$i+1]
     done
-    # Adding new line to counter.
+    # Adding new line to on-screen counter.
     echo
 }
 
-close_vm_list () {
-    echo "completing VM list format"
+close_host_list () {
+    echo "completing host and vm list format"
     echo " ]" >> keating.json
     echo " }" >> keating.json
     echo "removing last comma hack"
@@ -82,7 +82,7 @@ close_vm_list () {
     sed -i '$x;$G;/\(.*\),/!H;//!{$!d};  $!x;$s//\1/;s/^\n//' keating.json
 }
 
-close_host_list () {
+close_provider_list () {
     echo "}"  >> keating.json
 }
 
@@ -95,21 +95,47 @@ edit_cpu_data () {
 #Run parts:
 #exit if no arguemts are given
 if (( $# < 1 )); then
-	die "./keating.sh [Number of Hosts] [Optional: Number of CPUs]"
+	die "./keating.sh -h #Number_of_Hosts [-c #Number_of_CPUs]"
 else
-    TOTALVMS=$1
-    CPUCOUNT=$2
+    POSITIONAL=()
+    while [[ $# -gt 0 ]]
+    do
+    key="$1"
+
+    case $key in
+        -h|--hosts|--hypervisors)
+        TOTALHOSTS="$2"
+        shift # past argument
+        shift # past value
+        ;;
+        -p|--providers)
+        TOTALPROVIDERS="$2"
+        shift # past argument
+        shift # past value
+        ;;
+        -c|--cpu)
+        CPUCOUNT="$2"
+        shift # past argument
+        shift # past value
+        ;;
+        *)    # unknown option
+        POSITIONAL+=("$1") # save it in an array for later
+        shift # past argument
+        ;;
+        esac
+    done
+    set -- "${POSITIONAL[@]}" # restore positional parameters
 fi
 prepare_payload
-add_hosts
-add_vms 
-close_vm_list
+add_provider
+add_host 
 close_host_list
+close_provider_list
 
 if (( $# > 1 )); then
     edit_cpu_data
 fi
 
 echo "compressing"
-tar -zcvf keating-payload-$(date '+%Y%m%d_%H%M')-$1.tar.gz keating.json
+tar -zcvf keating-payload-$(date '+%Y%m%d_%H%M')-$TOTALHOSTS.tar.gz keating.json
 rm -f keating.json

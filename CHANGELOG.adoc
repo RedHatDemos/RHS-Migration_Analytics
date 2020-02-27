@@ -8,10 +8,12 @@
 
 
 == Changelog 
-Changes in the Tranining and Demo environments Migration Analytics 0.1 beta
+Changes in the Tranining and Demo environments Migration Analytics 1.0 beta
 
+* [0.34] 2020-02-27 
+- Updated CFME to version 5.11.4.-0 (CF 5.0.4)
 
-* [0.33] 2020-04-17
+* [0.33] 2020-0r24-17
 - Updated SSA data gathered
 
 * [0.32] 2020-02-13

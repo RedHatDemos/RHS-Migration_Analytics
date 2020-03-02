@@ -164,7 +164,7 @@ This deployment of the migration environment includes the following VMs provisio
 $ ssh lab-user@workstation-<YOUR-GUID>.rhpds.opentlc.com
 ----
 +
-. Once you check that you can connect to workstation, become `root` using the provided password:
+. Once you check that you can connect to workstation, become `root` using `sudo`:
 +
 ----
 $ sudo -i

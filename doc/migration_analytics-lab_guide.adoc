@@ -256,7 +256,7 @@ image::ssh_tunnel.png[SSH tunnel for Proxy]
 
 Time to move ahead.
 
-**Workshop**
+**Guided Lab**
 
 . Let's fire up SSH in your workstation but this time with the "tunnel" option `-L localhost:3128:localhost:3128`
 +
@@ -271,6 +271,9 @@ $ ssh -L localhost:3128:localhost:3128 lab-user@workstation-<YOUR-GUID>.rhpds.op
 Last login: Mon Aug 26 05:03:34 2019 from workstation.example.com
 [lab-user@workstation-1e37 ~]$ 
 ----
++
+[NOTE]
+A private SSH key may be provided by the proctor running the lab
 
 **RHPDS**
 

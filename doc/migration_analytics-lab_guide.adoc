@@ -161,7 +161,7 @@ This deployment of the migration environment includes the following VMs provisio
 . Once the environment is up and running, and we have it assigned to ourselves, we use SSH to test access to it, by connecting to the `workstation`.  The SSH path is provided in the GUID grabber tool.
 +
 ----
-$ ssh lab-user@workstation-<YOUR-GUID>.rhpds.opentlc.com
+$ ssh labuser@workstation-<YOUR-GUID>.rhpds.opentlc.com
 ----
 +
 . Once you check that you can connect to workstation, become `root` using `sudo`:

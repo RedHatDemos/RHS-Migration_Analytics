@@ -10,6 +10,9 @@
 == Changelog 
 Changes in the Tranining and Demo environments Migration Analytics 1.0 beta
 
+* [0.36] 2020-03-02
+- Fix issue with start_vms
+
 * [0.35] 2020-03-02
 - Exchanged keys for CF. 
 - Updated local github cloned repo in workstation

@@ -457,7 +457,7 @@ image::reset_cloudforms_04.png[Launch CF reset playbook]
 
 === Add vSphere Provider
 
-We will login in CloudForms using the appliance default credentials, being the user `admin` and using the default appliance password (*smartvm*).
+We will login in CloudForms using the credentials we have just set in the previous step. If the password remains unchanged, we shall use appliance default credentials, being the user `admin` and using the password (*smartvm*).
 
 image::add_vsphere_provider_01.png[Add vSphere provider to CloudForms]
 

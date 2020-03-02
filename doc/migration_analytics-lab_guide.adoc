@@ -592,7 +592,7 @@ This profile can be created by exporting the `sample` profile and editing it.
 +
 image::cloudforms-configure_ssa-05.png[Configure Smart State Analysis 5]
 
-. Now you may want to edit the `default` pforile and check the `File` tab of it:
+. Now you may want to edit the `default` profile and check the `File` tab of it:
 +
 image::cloudforms-configure_ssa-06.png[Configure Smart State Analysis 6]
 +

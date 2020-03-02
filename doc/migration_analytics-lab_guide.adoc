@@ -275,7 +275,7 @@ Last login: Mon Aug 26 05:03:34 2019 from workstation.example.com
 [NOTE]
 A private SSH key may be provided by the proctor running the lab
 
-**RHPDS**
+**Self guided using RHPDS**
 
 . Let's fire up SSH in your workstation but this time with the "tunnel" option `-L localhost:3128:localhost:3128`
 +
@@ -398,7 +398,7 @@ $ scp root@192.168.0.100:/tmp/cfme_inventory-20190904-2341-1h3vafb.tar.gz .
 Then we need to copy the file to our local machine:
 +
 ----
-$ scp lab-user@workstation-<GUID>.rhpds.opentlc.com:/home/lab-user/cfme_inventory-20190904-2341-1h3vafb.tar.gz .
+$ scp labuser@workstation-<GUID>.rhpds.opentlc.com:/home/labuser/cfme_inventory-20190904-2341-1h3vafb.tar.gz .
 ----
 
 image::migration_analytics_examination_08.png[Migration Analytics Examination]

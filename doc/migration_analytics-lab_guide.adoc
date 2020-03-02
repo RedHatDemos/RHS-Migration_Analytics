@@ -39,7 +39,7 @@ In order to analyze data, we will use the Migration Analytics application runnin
 
 == Overview
 
-The environment to be used for this lab provides a running VMware vSphere environment with different workloads on it, and a deployed and configured Red Hat CloudForms instance, with the Migration Analytics plugin configured to obtain data from it.
+The environment to be used for this lab provides a running VMware vSphere environment with different workloads on it. It also includes a deployed and configured Red Hat CloudForms instance, with the Migration Analytics plugin configured to obtain data from it.
 
 In this environment the following configuration steps are already done:
 
@@ -48,6 +48,9 @@ In this environment the following configuration steps are already done:
 * Provide credentials for virtualization providers and hosts in CloudForms
 * Configured Smart State Analysis in CloudForms
 * Configured Ansible, an ansible hosts file, in `workstation` and, exchanged ssh keys (`/root/.ssh/id_rsa`) with all running machines.
+
+[NOTE]
+These steps are reproduced later on in the lab.
 
 Required versions of products used:
 

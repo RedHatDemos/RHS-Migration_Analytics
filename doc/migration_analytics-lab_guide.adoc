@@ -41,7 +41,7 @@ In order to analyze data, we will use the Migration Analytics application runnin
 
 The environment to be used for this lab provides a running VMware vSphere environment with different workloads on it. It also includes a deployed and configured Red Hat CloudForms instance, with the Migration Analytics plugin configured to obtain data from it.
 
-In this environment the following configuration steps are already done:
+In this environment the following configuration steps are already completed:
 
 * Enabled Migration Analytics plugin in CloudForms
 * Added the `vSphere` virtualization provider in CloudForms
@@ -50,7 +50,7 @@ In this environment the following configuration steps are already done:
 * Configured Ansible, an ansible hosts file, in `workstation` and, exchanged ssh keys (`/root/.ssh/id_rsa`) with all running machines.
 
 [NOTE]
-These steps are reproduced later on in the lab.
+These steps are reproduced later on in the lab, so the user can learn how a full deployment is done.
 
 Required versions of products used:
 
@@ -61,10 +61,10 @@ Required versions of products used:
 |VMware vSphere |6.0+ (6.7 used)
 |=======
 
-The Migration Analytics service is running as an application on the OpenShift instances that power cloud.redhat.com. 
+The Migration Analytics service, that will help us analyze the data extracted (a.k.a. "payload") is running in link:https://cloud.redhat.com/beta[cloud.redhat.com/beta]. It is a set of applications running on the OpenShift that powers it.
 
 [NOTE]
-The tool uses Red Hat Decision Manager, Red Hat AMQ, Red Hat Fuse and other opensource tools to run. for more information please check link:https://project-xavier.io[project-xavier.io].
+The tool uses Red Hat Decision Manager, Red Hat AMQ (Kafka), Red Hat FUSE, 3Scale and other opensource tools to run. For more information, and access to all code, please check link:https://project-xavier.io[project-xavier.io].
 
 == Requirements to access and perform this lab
 
@@ -106,7 +106,7 @@ image::blueprint.png[Blueprint]
 |=======
 | Hostname | Internal IP | External name | Description
 |`workstation.example.com` |`192.168.0.10` | workstation-<YOUR-GUID>.rhpds.opentlc.com |Jump host and Ansible host
-|`storage.example.com` |`192.168.0.254` | workstation-<YOUR-GUID>.rhpds.opentlc.com | NFS server
+|`storage.example.com` |`192.168.0.254` | workstation-<YOUR-GUID>.rhpds.opentlc.com | NFS and iSCSI server
 |`cf.example.com` |`192.168.0.100` |  cf-<YOUR-GUID>.rhpds.opentlc.com |CloudForms server
 |`vcenter.example.com` |`192.168.0.50` | vcenter-<YOUR-GUID>.rhpds.opentlc.com |VMware vCenter server
 |`esx1.example.com` |`192.168.0.51` | N/A |ESXi hypervisor
@@ -125,8 +125,8 @@ Networks used in the environment:
 |=======
 | Network Name | IP range | Description
 | `Admin` | `192.168.x.x/16` | General administration and storage network.
-| `Service` | `10.10.0.x/24` | Internal network for the app to connect LB to EAP and to DB. 
-| `Service-DMZ` | `10.9.0.x/24` | External DMZ network to publish the app. Also access to the user API for OSP and Horizon (provider network)
+| `Service` | `10.10.0.x/24` | Internal network for the apps to connect to other apps. For example for `lb` (Load Balancer) to JBoss EAP and to `db`. 
+| `Service-DMZ` | `10.9.0.x/24` | External DMZ network to publish external services. 
 |=======
 
 * Virtual Machines 

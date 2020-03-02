@@ -106,9 +106,9 @@ image::blueprint.png[Blueprint]
 |=======
 | Hostname | Internal IP | External name | Description
 |`workstation.example.com` |`192.168.0.10` | workstation-<YOUR-GUID>.rhpds.opentlc.com |Jump host and Ansible host
-|`storage.example.com` |`192.168.0.254` | workstation-<YOUR-GUID>.rhpds.opentlc.com | NFS and iSCSI server
+|`storage.example.com` |`192.168.0.254` | N/A | NFS and iSCSI server
 |`cf.example.com` |`192.168.0.100` |  cf-<YOUR-GUID>.rhpds.opentlc.com |CloudForms server
-|`vcenter.example.com` |`192.168.0.50` | vcenter-<YOUR-GUID>.rhpds.opentlc.com |VMware vCenter server
+|`vcenter.example.com` |`192.168.0.50` | N/A |VMware vCenter server
 |`esx1.example.com` |`192.168.0.51` | N/A |ESXi hypervisor
 |`esx2.example.com` |`192.168.0.52` | N/A |ESXi hypervisor
 |=======

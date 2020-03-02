@@ -136,6 +136,8 @@ This deployment of the migration environment includes the following VMs provisio
 [cols="1,1,2",options="header"]
 |=======
 | Name | IPs | Description
+| `cluster0.example.com` | 10.10.0.8 | Red Hat Enterprise Linux 7 host running Pacemaker cluster software
+| `cluster1.example.com` | 10.10.0.9 | Red Hat Enterprise Linux 7 host running Pacemaker cluster software
 | `jboss0.example.com` | 10.10.0.110 | Red Hat Enterprise Linux 7 host running JBoss EAP, connected to the `Service` network for ticket-monster.
 | `jboss1.example.com` | 10.10.0.111 | Red Hat Enterprise Linux 7 host running JBoss EAP, connected to the `Service` network for ticket-monster.
 | `lb.example.com` | 10.10.0.100 , 10.9.0.100 | Red Hat Enterprise Linux 7 host running JBoss Core Service Apache HTTP server configured with mod_cluster to proxy traffic to `jboss0` and `jboss1`, connected to the `Service` and `Servicer-DMZ` networks for ticket-monster.
@@ -146,14 +148,15 @@ This deployment of the migration environment includes the following VMs provisio
 | `weblogic.example.com` | 10.10.0.181 | Red Hat Enterprise Linux 7 host running Oracle Weblogic 12 server through the `Service` network.
 | `websphere.example.com` | 10.10.0.182 | Red Hat Enterprise Linux 7 host running IBM WebSphere 8 server through the `Service` network.
 | `oracledb.example.com` | 10.10.0.160 | CentOS 7 host running Apache Tomcat 8 server through the `Service` network.
-| `msssql.example.com` | 10.10.0.190 | Red Hat Enterprise Linux 7 host running Microsoft SQL server through the `Service` network.
+| `mssql.example.com` | 10.10.0.190 | Red Hat Enterprise Linux 7 host running Microsoft SQL server through the `Service` network.
+| `wmssql.example.com` | 10.10.0.191 | Microsoft Windows host running Microsoft SQL server through the `Service` network.
 |=======
 
 == Getting Started
 
 === Accessing the environment
 
-**RHTE**
+**Guided Lab**
 
 . Once the environment is up and running, and we have it assigned to ourselves, we use SSH to test access to it, by connecting to the `workstation`.  The SSH path is provided in the GUID grabber tool.
 +
@@ -170,7 +173,7 @@ $ sudo -i
 Now that you have accessed the `workstation` machine and become `root`, you can check the rest of the infrastructure.
 
 
-**RHPDS**
+**Self request via RHPDS**
 
 . Once the environment is up and running, and we have it assigned to ourselves, we use SSH to test access to it, by connecting to the `workstation` using your OPENTLC login name and private SSH key.
 

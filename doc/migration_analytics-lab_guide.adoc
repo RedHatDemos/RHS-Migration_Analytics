@@ -35,7 +35,7 @@ In order to analyze data, we will use the Migration Analytics application runnin
 * Workload Migration Inventory
 
 .Goal
-* the goal of this lab is to obtain a set of data from a running environment, review it, upload it to be analyzed, and understand the benefits of the outcome provided in order to better assess and drive a migration.
+* The goal of this lab is to obtain a set of data from a running environment, review it, upload it to be analyzed, and understand the benefits of the outcome provided in order to better assess and drive a migration.
 
 == Overview
 

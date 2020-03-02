@@ -261,15 +261,15 @@ Time to move ahead.
 . Let's fire up SSH in your workstation but this time with the "tunnel" option `-L localhost:3128:localhost:3128`
 +
 ----
-$ ssh -L localhost:3128:localhost:3128 lab-user@workstation-<YOUR-GUID>.rhpds.opentlc.com
+$ ssh -L localhost:3128:localhost:3128 labuser@workstation-<YOUR-GUID>.rhpds.opentlc.com
 ----
 
 .  Running it shall simply provide a shell prompt. This an example on how it would look like:
 +
 ----
-$ ssh -L localhost:3128:localhost:3128 lab-user@workstation-<YOUR-GUID>.rhpds.opentlc.com
+$ ssh -L localhost:3128:localhost:3128 labuser@workstation-<YOUR-GUID>.rhpds.opentlc.com
 Last login: Mon Aug 26 05:03:34 2019 from workstation.example.com
-[lab-user@workstation-1e37 ~]$ 
+[labuser@workstation-1e37 ~]$ 
 ----
 +
 [NOTE]

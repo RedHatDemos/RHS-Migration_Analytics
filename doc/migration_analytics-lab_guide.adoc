@@ -387,21 +387,11 @@ image::migration_analytics_examination_06.png[Migration Analytics Examination]
 +
 image::migration_analytics_examination_07.png[Migration Analytics Examination]
 
-. Inventory collection will be complete. A file has been delivered in the filesystem of `cf.example.com`, in this case is the file `/tmp/cfme_inventory-20190829-2305-mvl6xy.tar.gz`. We will copy it manually. We may *return to summary*
-
-To copy the file to you local machine we first must copy it to the bastion host:
+. Inventory collection will be complete. Click on *Download Inventory File* to get the payload file.
 +
-----
-$ scp root@192.168.0.100:/tmp/cfme_inventory-20190904-2341-1h3vafb.tar.gz .
-----
-
-Then we need to copy the file to our local machine:
-+
-----
-$ scp labuser@workstation-<GUID>.rhpds.opentlc.com:/home/labuser/cfme_inventory-20190904-2341-1h3vafb.tar.gz .
-----
-
 image::migration_analytics_examination_08.png[Migration Analytics Examination]
++
+image::migration_analytics_examination_09.png[Migration Analytics Examination]
 
 === Analyzing the Data from Examination with the Workload Analysis Tool
 

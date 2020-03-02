@@ -423,10 +423,6 @@ image::migration_analytics_WAT_03.png[Workload Analysis Tool]
 +
 image::migration_analytics_WAT_04.png[Workload Analysis Tool]
 
-. A new entry appears while the reports are being generated.
-+
-image::migration_analytics_WAT_05.png[Workload Analysis Tool]
-
 . Once the report is created we can click on its name to access it
 +
 image::migration_analytics_WAT_06.png[Workload Analysis Tool]

@@ -501,7 +501,7 @@ image::add_vsphere_provider_09.png[Add vSphere provider to CloudForms]
 
 [WARNING]
 If it's not possible to add credentials for the ESXi hosts (or there are too many hosts with different credentials), VM scanning can still be performed using an authentication token provided by the vCenter. To configure this, set scan_via_host to be false in Configuration → Advanced settings:
-+
+
 ----
 :coresident_miqproxy:
   :scan_via_host: false

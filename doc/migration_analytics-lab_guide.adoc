@@ -452,6 +452,8 @@ image::reset_cloudforms_01.png[Launch CF reset playbook]
 . After CloudForms database reset, the users will be removed and the `admin` will have the *password reset* to the default appliance password (*smartvm*). We shall change that default password to the provided one by clicking in `update password` in the CloudForms login screen and filling up the new password fields:
 +
 image::reset_cloudforms_03.png[Launch CF reset playbook]
++
+image::reset_cloudforms_04.png[Launch CF reset playbook]
 
 === Add vSphere Provider
 

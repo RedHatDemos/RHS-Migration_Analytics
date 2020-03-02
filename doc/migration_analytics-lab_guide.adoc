@@ -415,7 +415,7 @@ image::migration_analytics_WAT_01.png[Workload Analysis Tool]
 +
 image::migration_analytics_WAT_02.png[Workload Analysis Tool]
 
-. We select the payload file to be analyzed. We may want to use this link:https://github.com/RedHatDemos/RHS-Migration_Analytics/blob/master/payloads/cfme_inventory-20190912-demolab_withSSA.tar.gz?raw=true[sample file] that contains more hosts and VMs than the lab environment. We choose our *Report Name* and provide a *Report Description*. It is important ot include the growth rate expected, as well as the planned migration per year.
+. We select the payload file to be analyzed. We may want to use this link:https://github.com/RedHatDemos/RHS-Migration_Analytics/blob/master/payloads/cfme_inventory-20200302-demolab_withSSA.tar.gz?raw=true[sample file] that contains a sample of the hosts and VMs in the lab environment. We choose our *Report Name* and provide a *Report Description*. It is important ot include the growth rate expected, as well as the planned migration per year.
 +
 image::migration_analytics_WAT_03.png[Workload Analysis Tool]
 

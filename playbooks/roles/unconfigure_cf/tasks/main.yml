@@ -20,7 +20,6 @@
   file:
     path: '{{ item }}'
     state: absent
-    recurse: true
   with_items:
     - /usr/lib/libvixDiskLib.so
     - /usr/lib/libvixDiskLib.so.6

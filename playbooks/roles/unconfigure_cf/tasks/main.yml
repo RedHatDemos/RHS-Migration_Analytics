@@ -26,6 +26,10 @@
     - /usr/lib/vmware-vix-disklib/
   ignore_errors: yes
 
+- name: Library reconfiguration after VDDK cleanup
+  shell: /usr/sbin/ldconfig
+  ignore_errors: yes
+
 - name: Start EVM services
   service:
     name: '{{ item }}'

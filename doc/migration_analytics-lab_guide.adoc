@@ -530,9 +530,9 @@ VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00
 ----
 [root@cf-REPL ~]# mkdir -p /usr/lib/vmware-vix-disklib
 [root@cf-REPL ~]# cd vmware-vix-disklib-distrib
-[root@cf-REPL vmware-vix-disklib-distrib]# cp -r bin64 /usr/lib/vmware-vix-disklib/
-[root@cf-REPL vmware-vix-disklib-distrib]# cp -r lib64 /usr/lib/vmware-vix-disklib/
-[root@cf-REPL vmware-vix-disklib-distrib]# cp -r include /usr/lib/vmware-vix-disklib/
+[root@cf-REPL vmware-vix-disklib-distrib]# cp -rnv bin64 /usr/lib/vmware-vix-disklib/
+[root@cf-REPL vmware-vix-disklib-distrib]# cp -rnv lib64 /usr/lib/vmware-vix-disklib/
+[root@cf-REPL vmware-vix-disklib-distrib]# cp -rnv include /usr/lib/vmware-vix-disklib/
 ----
 
 . Create symbolic links to make them available and load them:

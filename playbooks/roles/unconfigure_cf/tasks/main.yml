@@ -16,6 +16,17 @@
     chdir: /var/www/miq/vmdb
   environment: '{{ rails_env }}'
 
+- name: Cleanup VDDK files
+  file:
+    path: '{{ item }}'
+    state: absent
+    recurse: true
+  with_items:
+    - /usr/lib/libvixDiskLib.so
+    - /usr/lib/libvixDiskLib.so.6
+    - /usr/lib/vmware-vix-disklib/
+  ignore_errors: yes
+
 - name: Start EVM services
   service:
     name: '{{ item }}'

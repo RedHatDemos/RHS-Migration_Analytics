@@ -23,7 +23,7 @@ add_provider () {
 
 
 add_host () {
-i=1
+i=0
     while [[ $i -lt $TOTALHOSTS ]]; do 
 	    random=$((1 + RANDOM % 4))
 	    a="${i}1"

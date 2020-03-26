@@ -436,7 +436,12 @@ To deploy a CloudForms appliance on VMware you may want to follow link:https://a
 
 === CloudForms Reset
 
-Once the overview is done, we can proceed to SSH to the `workstation` as `root`. 
+Once the overview is done, we can proceed to SSH to the `workstation` in a new session to not break your tunnels that were previously setup. Then change to the `root` user.
+
+----
+# ssh -i /path/to/private_key <YOUR-OpenTLC-USERNAME-redhat.com>@workstation-<YOUR-GUID>.rhpds.opentlc.com
+# sudo su - 
+----
 
 We continue by running, in `workstation`, the playbook to unconfigure the deployed CloudForms:
 

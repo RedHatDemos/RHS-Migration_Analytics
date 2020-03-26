@@ -562,7 +562,7 @@ VMware-vix-disklib-stable.tar.gz              100%   19MB  86.0MB/s   00:00
 +
 image::cloudforms-configure_ssa-03.png[Configure Smart State Analysis 3]
 
-. Check in *Configuration -> Settings* (remember, Configuration is the gear in the top right corner) that there is no `default` analysis profile. You may examine the `sample` analysis profile:
+. Check in *Configuration -> Settings* (remember, Configuration is the gear in the top right corner) that there is no `default` analysis profile. We will create the `default` analysis profile in a few steps. You may have a `host default` analysis profile configured and that is OK. You may examine the `sample` analysis profile to see what an analysis profile looks like:
 +
 image::cloudforms-configure_ssa-04.png[Configure Smart State Analysis 4]
 +

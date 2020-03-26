@@ -479,7 +479,7 @@ image::add_vsphere_provider_03.png[Add vSphere provider to CloudForms]
 +
 image::add_vsphere_provider_04.png[Add vSphere provider to CloudForms]
 
-. We reach to the point where the *Insfrastructure Provider* has been added
+. We reach the point where the *Infrastructure Provider* has been added
 +
 image::add_vsphere_provider_05.png[Add vSphere provider to CloudForms]
 

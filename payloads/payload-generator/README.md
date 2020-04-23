@@ -10,7 +10,7 @@ to run it, execute the shell script with a required argument for the number of h
 # ./keating.sh -h #Number_of_Hosts [-c #Number_of_CPUs]
 ```
 
-Upload the .json payload to migration analytics in https://cloud.redhat.com/beta
+Upload the .json payload to Migration Analytics in https://cloud.redhat.com/migrations/migration-analytics/
 
 If you want to see how workloads are detected in [Project Xavier](https://github.com/project-xavier) you can review the [Flags](https://github.com/project-xavier/xavier-analytics/blob/master/src/main/resources/org/jboss/xavier/analytics/rules/workload/inventory/Flags.drl) and [Workloads](https://github.com/project-xavier/xavier-analytics/blob/master/src/main/resources/org/jboss/xavier/analytics/rules/workload/inventory/Workloads.drl) rules files.
 

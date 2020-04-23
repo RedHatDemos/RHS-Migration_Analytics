@@ -7,7 +7,7 @@ Based on the work by James Labocki in the following repo `https://github.com/jam
 to run it, execute the shell script with a required argument for the number of hosts to include in the payload
 
 ```
-# ./keating.sh <number of hosts to create in payload>
+# ./keating.sh -h #Number_of_Hosts [-c #Number_of_CPUs]
 ```
 
 Upload the .json payload to migration analytics in https://cloud.redhat.com/beta

@@ -15,6 +15,6 @@ Please, report issues with documentation and/or lab in the [issues](issues) sect
 This effort is part of the Red Hat Migration and Modernization Solutions.
 
 * Check source code being developed here: http://project-xavier.io
-* Migration Analytics Product Page: https://access.redhat.com/products/migration-analytics
+* Migration Analytics Product Page: https://red.ht/migration-analytics
 * Demo and Training environment [CHANGELOG](CHANGELOG.adoc)
 * Mailing list: migrate at redhat dot com

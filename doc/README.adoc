@@ -3,15 +3,15 @@
 :toc2:
 :imagesdir: images
 
-== Red Hat Solutions: Migration Analytics 0.1 beta
+== Red Hat Solutions: Migration Analytics 1.0 GA
 
 Migration Analytics is based in the field experience of the Cloud Migration Factory. The tooling required is now included as features in differend projects (and products) to implement the VM migration tasks. The solution includes also proffesional services, training and much more please check link:http://red.ht/possibilities[http://red.ht/possibilities] for more info. This documentation is intended to be used to learn about the technical implementation of the solution, or demo it.
 
-=== Migration Analytics v0.1 Lab Guide
+=== Migration Analytics v1.0 GA Lab Guide
 
 . link:migration_analytics-lab_guide.adoc[Migration Analytics 0.1 beta Lab Guide]
 
-=== Infrastructure Migration Solution v1.1 Supporting Documents
+=== Migration Analytics v1.0 GA Supporting Documents
 . link:migration_analytics-configure_ssa.adoc[Configure Smart State Analysis in CloudForms 5.0]
 . link:migration_analytics-enable_menu.adoc[Enable Migration Analytics plugin in CloudForms 5.0]
 . link:migration_analytics-manual_data_extraction.md[Perform Manual Data Extraction in CloudForms 5.0]

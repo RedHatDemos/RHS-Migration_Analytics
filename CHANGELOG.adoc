@@ -2,13 +2,20 @@
 :data-uri:
 :toc2:
 
-== Migration Analytics 0.1 beta 
+== Migration Analytics 1.0 GA
 
 :numbered:
 
 
 == Changelog 
 Changes in the Tranining and Demo environments Migration Analytics 1.0 beta
+
+* [1.0] 2020-05-07
+- Bumped to 1.0 GA
+- Updated CloudForms to 5.0.5
+
+* [0.38] 2020-03-10
+- Added files for detection of Insights in RHEL
 
 * [0.37] 2020-03-03
 - Improved CF reset and cleanup

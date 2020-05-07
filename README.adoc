@@ -2,7 +2,7 @@
 :data-uri:
 :toc2:
 
-== Migration Analytics 0.1 beta 
+== Migration Analytics 1.0 GA 
 
 :numbered:
 

@@ -83,7 +83,7 @@
         "guest_os_full_name": "Microsoft Windows Server 2016 (64-bit)",
         "disks": [
           {
-            "id": 9,
+            "id": 99,
             "device_name": "Hard disk 1",
             "device_type": "disk",
             "disk_type": "thin",
@@ -852,7 +852,7 @@
         "guest_os_full_name": "Microsoft Windows Server 2016 (64-bit)",
         "disks": [
           {
-            "id": 9,
+            "id": 98,
             "device_name": "Hard disk 1",
             "device_type": "disk",
             "disk_type": "thin",
@@ -1636,7 +1636,7 @@
             "size_on_disk": null
           },
           {
-            "id": 53,
+            "id": 73,
             "device_name": "Hard disk 1",
             "device_type": "disk",
             "disk_type": "thick",
@@ -2409,7 +2409,7 @@
             "size_on_disk": null
           },
           {
-            "id": 42,
+            "id": 942,
             "device_name": "Hard disk 1",
             "device_type": "disk",
             "disk_type": "thick",
@@ -3464,7 +3464,7 @@
         "guest_os_full_name": "CentOS 4/5 or later (64-bit)",
         "disks": [
           {
-            "id": 65,
+            "id": 965,
             "device_name": "Hard disk 1",
             "device_type": "disk",
             "disk_type": "thin",
@@ -3486,7 +3486,7 @@
             "size_on_disk": null
           },
           {
-            "id": 66,
+            "id": 966,
             "device_name": "Hard disk 2",
             "device_type": "disk",
             "disk_type": "thin",
@@ -4550,7 +4550,7 @@
         "guest_os_full_name": "Red Hat Enterprise Linux 7 (64-bit)",
         "disks": [
           {
-            "id": 85,
+            "id": 185,
             "device_name": "Hard disk 1",
             "device_type": "disk",
             "disk_type": "thin",
@@ -5324,7 +5324,7 @@
         "guest_os_full_name": "CentOS 7 (64-bit)",
         "disks": [
           {
-            "id": 74,
+            "id": 374,
             "device_name": "Hard disk 1",
             "device_type": "disk",
             "disk_type": "thin",
@@ -5335,7 +5335,7 @@
             "size_on_disk": 1343504384
           },
           {
-            "id": 76,
+            "id": 376,
             "device_name": "Hard disk 2",
             "device_type": "disk",
             "disk_type": "thin",

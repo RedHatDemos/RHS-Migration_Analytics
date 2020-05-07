@@ -11,7 +11,7 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-== Migration Analytics 0.1 beta - Lab Guide
+== Migration Analytics 1.0 GA - Lab Guide
 
 :numbered:
 
@@ -637,32 +637,8 @@ When an SSA of a VM has completed successfully, the VM details page will have mo
 +
 image::cloudforms-configure_ssa-09.png[Configure Smart State Analysis 9]
 
-=== Enable Migration Analytics Menu
-
-. In the CloudForms UI, navigate to Settings using the ⚙️ icon in the upper-right
-
-. Click the Advanced tab. Find the `prototype` section, and under `migration_analytics` in this section, change `enabled` from false to true
-```diff
- :prototype:
-   :migration_analytics:
--    :enabled: false
-+    :enabled: true
-```
-
-. Click Save
-
-. SSH in the Cloudforms VM
-----
-# ssh cloudforms.example.com
-----
-
-. Restart the service
-----
-# systemctl restart evmserverd.service
-----
-
 === Run new examination
 
-Now the environment is ready to run another examination.
+Now the environment is ready to run another examination. You could go back to the beginning of this guide to do so. :-)
 
 

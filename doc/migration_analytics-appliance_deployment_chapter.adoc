@@ -217,7 +217,7 @@ image::cloudforms-configure_ssa-09.png[Configure Smart State Analysis 9]
 
 . SSH in the Cloudforms VM
 ----
-# ssh cloudforms.example.com
+# ssh cf.example.com
 ----
 
 . Restart the service

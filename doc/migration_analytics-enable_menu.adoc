@@ -23,7 +23,7 @@
 
 * SSH in the Cloudforms VM
 ----
-# ssh cloudforms.example.com
+# ssh cf.example.com
 ----
 
 * Restart the service

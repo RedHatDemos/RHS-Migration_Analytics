@@ -5,7 +5,7 @@ This repo will host the documentation for the Traning and Demo environments rela
 Please, report issues with documentation and/or lab in the [issues](issues) section of this repo. Feel free to propose updates and changes in the [pull request](pulls) section, preferrably as ansible playbooks and/or ASCII doc files.
 
 ## Video recording demo
-[![Migration Analytics Video](https://raw.githubusercontent.com/RedHatDemos/RHS-Infrastructure_Migration/ims_1.2/doc/images/demo_icon.png)](https://www.youtube.com/watch?v=Wf5BwZNkQiA)
+[![Migration Analytics Video](https://img.youtube.com/vi/Wf5BwZNkQiA/0.jpg)](https://www.youtube.com/watch?v=Wf5BwZNkQiA)
 
 ## Go ahead, get your hands dirty!
 

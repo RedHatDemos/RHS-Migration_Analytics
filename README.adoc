@@ -4,9 +4,7 @@
 
 == Migration Analytics 1.0 GA 
 
-:numbered:
-
-This repo will host the documentation for the Traning and Demo environments related to the Red Hat Migration Analytics project.
+This repo will host the documentation for the Traning and Demo environments related to the Red Hat Migration Analytics.
 
 This effort is part of the Red Hat Migration and Modernization Solutions.
 

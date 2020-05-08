@@ -516,6 +516,8 @@ If it's not possible to add credentials for the ESXi hosts (or there are too man
 [WARNING]
 Since the appliance was already previously configured for Smart State Analysis, the vddk library and associated tasks with it exist. The steps below are used when configuring a brand new appliance.
 
+You may want to take the easy way and use the avialable configuration script available here: https://access.redhat.com/articles/5001061 . We recommend doing it manually the first time to learn how it works.
+
 . Install the VMware VDDK onto the CFME appliance. First copy the *VMware-vix-disklib* from the `workstation` folder to `cf`:
 +
 ----

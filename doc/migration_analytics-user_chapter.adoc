@@ -11,7 +11,7 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-== Migration Analytics 0.1 beta - Using the Analysis Tool 
+== Migration Analytics 1.0 GA - Using the Analysis Tool 
 
 :numbered:
 
@@ -19,7 +19,7 @@ endif::[]
 
 Once we have the data we proceed to analyze it in our Software as a Service offering, the Workload Analysis Tool, which is part of cloud.redhat.com 
 
-. We access https://cloud.redhat.com/beta (until it's available, we will use an internal sandbox environment, please ask for help in migrate@redhat.com if you want access). We select in *Migration Services*, the entry *Migraion Analytics*
+. We access https://cloud.redhat.com/
 +
 image::migration_analytics_WAT_01.png[Workload Analysis Tool]
 

@@ -11,13 +11,13 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-== Migration Analytics 0.1 beta - Appliance Deployment
+== Migration Analytics 1.0 GA - Appliance Deployment
 
 :numbered:
 
 == Introduction
 
-To obtain a deploy a Red Hat CloudForms appliance, and make it run on VMware you may want to follow link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0-beta/html/installing_red_hat_cloudforms_on_red_hat_virtualization/index[the official CloudForms documentation].
+To obtain a deploy a Red Hat CloudForms appliance, and make it run on VMware you may want to follow link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html/installing_red_hat_cloudforms_on_red_hat_virtualization/index[the official CloudForms documentation].
 
 === Add vSphere Provider
 

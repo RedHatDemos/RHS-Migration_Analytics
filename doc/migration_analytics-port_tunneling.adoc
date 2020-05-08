@@ -3,7 +3,7 @@
 :toc2:
 :imagesdir: images
 
-== Migration Analytics 0.1 beta - Lab Guide
+== Migration Analytics 1.0 GA - Lab Guide
 
 === Accessing the environment
 

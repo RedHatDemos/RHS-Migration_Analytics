@@ -9,10 +9,9 @@ Migration Analytics is based in the field experience of the Cloud Migration Fact
 
 === Migration Analytics v1.0 GA Lab Guide
 
-. link:migration_analytics-lab_guide.adoc[Migration Analytics 0.1 beta Lab Guide]
+. link:migration_analytics-lab_guide.adoc[Migration Analytics 1.0 GA Lab Guide]
 
 === Migration Analytics v1.0 GA Supporting Documents
 . link:migration_analytics-configure_ssa.adoc[Configure Smart State Analysis in CloudForms 5.0]
-. link:migration_analytics-enable_menu.adoc[Enable Migration Analytics plugin in CloudForms 5.0]
 . link:migration_analytics-manual_data_extraction.md[Perform Manual Data Extraction in CloudForms 5.0]
 . link:migration_analytics-port_tunneling.adoc[SSH port tunneling to access the Environment]

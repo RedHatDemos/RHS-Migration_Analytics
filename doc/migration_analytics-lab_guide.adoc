@@ -57,11 +57,11 @@ Required versions of products used:
 [cols="1,1",options="header"]
 |=======
 |Product |Version
-|CloudForms |5.0.4+ 
+|CloudForms |5.0.5+ 
 |VMware vSphere |6.0+ (6.7 used)
 |=======
 
-The Migration Analytics service, that will help us analyze the data extracted (a.k.a. "payload") is running in link:https://cloud.redhat.com/beta[cloud.redhat.com/beta]. It is a set of applications running on the OpenShift that powers it.
+The Migration Analytics service, that will help us analyze the data extracted (a.k.a. "payload") is running in link:https://cloud.redhat.com/[cloud.redhat.com/]. It is a set of applications running on the OpenShift that powers it.
 
 [NOTE]
 The tool uses Red Hat Decision Manager, Red Hat AMQ (Kafka), Red Hat FUSE, 3Scale and other opensource tools to run. For more information, and access to all code, please check link:https://project-xavier.io[project-xavier.io].
@@ -397,7 +397,7 @@ image::migration_analytics_examination_09.png[Migration Analytics Examination]
 
 Once we have the data we proceed to analyze it in our Software as a Service offering, the Workload Analysis Tool, which is part of cloud.redhat.com 
 
-. We access https://cloud.redhat.com/beta (until it's available, we will use an internal sandbox environment, please ask for help in migrate@redhat.com if you want access). We select in *Migration Services*, the entry *Migration Analytics*
+. We access https://cloud.redhat.com/ . We select in *Migration Services*, the entry *Migration Analytics*
 +
 image::migration_analytics_WAT_01.png[Workload Analysis Tool]
 
@@ -432,7 +432,7 @@ image::migration_analytics_WAT_09.png[Workload Analysis Tool]
 
 == Configuring CloudForms to run as Migration Analytics Workload Examination Toolkit
 
-To deploy a CloudForms appliance on VMware you may want to follow link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0-beta/html/installing_red_hat_cloudforms_on_red_hat_virtualization/index[the official CloudForms documentation].
+To deploy a CloudForms appliance on VMware you may want to follow link:https://access.redhat.com/documentation/en-us/migration_analytics/1.0/html/migration_analytics_guide/installing_and_configuring_red_hat_cloudforms_for_migration_analytics[the official documentation].
 
 === CloudForms Reset
 

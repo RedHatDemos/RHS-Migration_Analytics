@@ -66,6 +66,7 @@ while [[ $i -le $TOTALHOSTS ]]; do
 	        -e "s/VMID9/$j/" \
 	        -e "s/VMNAME9/infra-$j/" \
 	        -e "s/VMEMS9/vm-$j/" \
+	        -e "s/DISKID/0$i/" \
             -e "s/FQDN/host-$i.example.com/g" hosttemplate${random}.json >> keating.json
 	    i=$[$i+1]
     done
